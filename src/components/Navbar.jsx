@@ -6,37 +6,37 @@ const categories = [
     name: "ALCHEMY",
     items: 18,
     hoverText: "Mystical fragrances that transform your space",
-    candleImg: "https://images.unsplash.com/photo-1605101600616-a8c6db5b98aa"
+    candleImg: "https://images.unsplash.com/photo-1608085021802-e886468f5fc1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     name: "CELESTIAL",
     items: 18,
     hoverText: "Stellar scents that elevate your senses",
-    candleImg: "https://images.unsplash.com/photo-1476900164809-ff19b8ae5968"
+    candleImg: "https://plus.unsplash.com/premium_photo-1695449332324-8e790ea66bf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww"
   },
   {
     name: "BOHEMIAN BLISS",
     items: 18,
     hoverText: "Free-spirited aromas for your wanderlust soul",
-    candleImg: "https://images.unsplash.com/photo-1608085021802-e886468f5fc1"
+    candleImg: "https://images.unsplash.com/photo-1477313372947-d68a7d410e9f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww"
   },
   {
     name: "CAFÉ DELIGHTS",
     items: 18,
     hoverText: "Warm coffee-inspired fragrances to awaken",
-    candleImg: "https://images.unsplash.com/photo-1605101600616-a8c6db5b98aa"
+    candleImg: "https://images.unsplash.com/photo-1477659803863-c1bf91b34c90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIyfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     name: "BEST SELLER",
     items: 18,
     hoverText: "Our most loved creations by customers",
-    candleImg: "https://images.unsplash.com/photo-1512275428636-76c9d55af6e3"
+    candleImg: "https://images.unsplash.com/photo-1705838942246-1002aa0fdd93?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMwfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     name: "CITRUS BURST",
     items: 18,
     hoverText: "Zesty and refreshing energy boosters",
-    candleImg: "https://images.unsplash.com/photo-1603959452586-78397d087b62"
+    candleImg: "https://images.unsplash.com/photo-1683640862718-c001169c8514?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
   },
 ];
 
