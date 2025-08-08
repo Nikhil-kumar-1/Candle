@@ -2,11 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
-import HeroSection from "./components/Hero";
+
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-
-
+import Product from "./components/Product/Product";
 
 const App = () => {
   return (
@@ -16,17 +15,8 @@ const App = () => {
         {/* Routes for different pages */}
         <Routes>
           {/* Home page */}
-          <Route
-            path="/"
-            element={
-              <>
-                <HeroSection />
-                <Home />
-              </>
-            }
-          />
-
-
+          <Route path="/" element={<Home />} />
+          <Route path="/product" element={<Product />} />
         </Routes>
 
         {/* Footer will be shown on every page */}
