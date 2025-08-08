@@ -1,193 +1,171 @@
-import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { FiMenu, FiX, FiShoppingCart, FiSearch } from "react-icons/fi";
+import { useState, useEffect } from "react";
 
-const categories = [
-  {
-    name: "ALCHEMY",
-    items: 18,
-    hoverText: "Mystical fragrances that transform your space",
-    candleImg: "https://images.unsplash.com/photo-1608085021802-e886468f5fc1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
-  },
-  {
-    name: "CELESTIAL",
-    items: 18,
-    hoverText: "Stellar scents that elevate your senses",
-    candleImg: "https://plus.unsplash.com/premium_photo-1695449332324-8e790ea66bf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww"
-  },
-  {
-    name: "BOHEMIAN BLISS",
-    items: 18,
-    hoverText: "Free-spirited aromas for your wanderlust soul",
-    candleImg: "https://images.unsplash.com/photo-1477313372947-d68a7d410e9f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww"
-  },
-  {
-    name: "CAFÉ DELIGHTS",
-    items: 18,
-    hoverText: "Warm coffee-inspired fragrances to awaken",
-    candleImg: "https://images.unsplash.com/photo-1477659803863-c1bf91b34c90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIyfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
-  },
-  {
-    name: "BEST SELLER",
-    items: 18,
-    hoverText: "Our most loved creations by customers",
-    candleImg: "https://images.unsplash.com/photo-1705838942246-1002aa0fdd93?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMwfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
-  },
-  {
-    name: "CITRUS BURST",
-    items: 18,
-    hoverText: "Zesty and refreshing energy boosters",
-    candleImg: "https://images.unsplash.com/photo-1683640862718-c001169c8514?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
-  },
-];
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-export default function HeroSection() {
-  const [bgImage, setBgImage] = useState(
-    "https://images.unsplash.com/photo-1636714477840-3968c444f8ed"
-  );
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navItems = [
+    { name: "Home", href: "#" },
+    { name: "Products", href: "#" },
+    { name: "Collections", href: "#" },
+    { name: "About", href: "#" },
+    { name: "Contact", href: "#" },
+  ];
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-[#152336] font-poppins">
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-      `}</style>
+    <nav
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? "bg-white/85 shadow-md" : "bg-white/20"
+      } backdrop-blur-md`}
+    >
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-16 items-center">
+          
+          {/* Logo */}
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="flex items-center space-x-2"
+          >
+            <img src="Logo.png" alt="Ravangi Logo" className="h-15 w-auto drop-shadow-lg" />
+            <span 
+              className={`text-2xl font-bold ${
+                scrolled ? "text-[#0b3d60]" : "text-white"
+              }`}
+              style={{
+                textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
+              }}
+            >
+              Ravangi
+            </span>
+          </motion.div>
 
-      {/* Background Image */}
-      <motion.div
-        className="absolute inset-0 bg-center bg-cover"
-        style={{ backgroundImage: `url(${bgImage})` }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        key={bgImage}
-      />
-      
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-[#152336]/50" />
-
-      {/* Navbar */}
-      <nav className="relative z-20 py-4 px-8">
-        <div className="flex justify-between items-center">
-          <div className="text-3xl font-bold tracking-wider text-[#f1ead8]">RAVANGI</div>
+          {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
-            {["Shop", "Collections", "About", "Journal", "Contact"].map((item) => (
-              <a 
-                key={item} 
-                href="#" 
-                className="text-[#f1ead8] hover:text-[#f4aa2d] transition-colors duration-300 font-medium"
+            {navItems.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className={`relative font-medium px-3 py-2 ${
+                  scrolled ? "text-[#0b3d60]" : "text-white"
+                }`}
+                style={{
+                  textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
+                }}
+                whileHover={{ scale: 1.05 }}
               >
-                {item}
-              </a>
+                {item.name}
+                <motion.span
+                  className={`absolute bottom-0 left-0 w-0 h-0.5 ${
+                    scrolled ? "bg-[#0b3d60]" : "bg-white"
+                  }`}
+                  whileHover={{ width: "100%" }}
+                  transition={{ duration: 0.3 }}
+                />
+              </motion.a>
             ))}
           </div>
-          <div className="flex space-x-6">
-            <svg className="w-6 h-6 text-[#f1ead8] hover:text-[#f4aa2d] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-            <div className="relative">
-              <svg className="w-6 h-6 text-[#f1ead8] hover:text-[#f4aa2d] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-              </svg>
-              <span className="absolute -top-2 -right-2 bg-[#eb4636] text-[#fafaf1] rounded-full w-5 h-5 flex items-center justify-center text-xs font-bold">
+
+          {/* Icons */}
+          <div className="hidden md:flex items-center space-x-6">
+            <motion.button 
+              whileHover={{ scale: 1.1 }} 
+              whileTap={{ scale: 0.9 }} 
+              className={`${scrolled ? "text-[#0b3d60]" : "text-white"}`}
+              style={{
+                textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
+              }}
+            >
+              <FiSearch className="h-5 w-5" />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className={`${scrolled ? "text-[#0b3d60]" : "text-white"} relative`}
+              style={{
+                textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
+              }}
+            >
+              <FiShoppingCart className="h-5 w-5" />
+              <span className="absolute -top-2 -right-2 bg-white text-[#0b3d60] font-bold text-xs rounded-full h-5 w-5 flex items-center justify-center">
                 0
               </span>
-            </div>
+            </motion.button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden">
+            <motion.button
+              onClick={() => setIsOpen(!isOpen)}
+              className={`${scrolled ? "text-[#0b3d60]" : "text-white"} focus:outline-none`}
+              style={{
+                textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
+              }}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+            </motion.button>
           </div>
         </div>
-      </nav>
-
-      {/* Category Grid */}
-      <div className="relative z-10 max-w-7xl mx-auto h-full flex items-center px-4">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full">
-          {categories.map((cat, index) => (
-            <motion.div
-              key={index}
-              onMouseEnter={() => {
-                setBgImage(cat.candleImg);
-                setHoveredIndex(index);
-              }}
-              onMouseLeave={() => {
-                setBgImage("https://images.unsplash.com/photo-1636714477840-3968c444f8ed");
-                setHoveredIndex(null);
-              }}
-              className="relative h-48 cursor-pointer group"
-              whileHover={{ scale: 1.03 }}
-              transition={{ duration: 0.3 }}
-            >
-              {/* Box Overlay - Transparent by default, slightly opaque when hovered */}
-              <div 
-                className="absolute inset-0 border border-[#f1ead8]/30 transition-all duration-300"
-                style={{
-                  backgroundColor: hoveredIndex === index 
-                    ? 'rgba(21, 35, 54, 0.5)' // Slightly opaque when hovered
-                    : 'rgba(21, 35, 54, 0)', // Fully transparent by default
-                  backdropFilter: hoveredIndex === index ? 'blur(2px)' : 'none'
-                }}
-              />
-              
-              <div className="relative h-full p-6 flex flex-col justify-end">
-                <motion.h2 
-                  className="text-xl font-semibold text-[#f1ead8]"
-                  whileHover={{ x: 5 }}
-                >
-                  {cat.name}
-                </motion.h2>
-                <p className="text-sm text-[#f1ead8]/80 mt-1">{cat.items} Items</p>
-                
-                {hoveredIndex === index && (
-                  <motion.p 
-                    className="text-[#f1ead8] mt-2 text-sm font-light"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    {cat.hoverText}
-                  </motion.p>
-                )}
-              </div>
-              
-              {/* Glow Effect */}
-              {hoveredIndex === index && (
-                <div 
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    boxShadow: `0 0 40px 15px rgba(244, 170, 45, 0.2)`,
-                    transition: 'all 0.5s ease'
-                  }}
-                />
-              )}
-            </motion.div>
-          ))}
-        </div>
       </div>
 
-      {/* Floating Particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(15)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute rounded-full bg-[#f4aa2d]"
-            style={{
-              width: `${Math.random() * 5 + 2}px`,
-              height: `${Math.random() * 5 + 2}px`,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.3 + 0.1,
-              filter: 'blur(1px)'
-            }}
-            animate={{
-              y: [0, (Math.random() - 0.5) * 30],
-              x: [0, (Math.random() - 0.5) * 15],
-              opacity: [0.2, 0.5, 0.2]
-            }}
-            transition={{
-              duration: Math.random() * 8 + 4,
-              repeat: Infinity,
-              repeatType: 'reverse'
-            }}
-          />
-        ))}
-      </div>
-    </section>
+      {/* Mobile Menu */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden bg-[#0b3d60]/95 backdrop-blur-md"
+        >
+          <div className="px-2 pt-2 pb-3 space-y-2">
+            {navItems.map((item) => (
+              <motion.a
+                key={item.name}
+                href={item.href}
+                className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded"
+                style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
+                whileHover={{ x: 5 }}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.name}
+              </motion.a>
+            ))}
+            <div className="flex space-x-4 px-3 py-2">
+              <motion.button 
+                whileHover={{ scale: 1.1 }} 
+                whileTap={{ scale: 0.9 }} 
+                className="text-white"
+                style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
+              >
+                <FiSearch className="h-5 w-5" />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                className="text-white relative"
+                style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
+              >
+                <FiShoppingCart className="h-5 w-5" />
+                <span className="absolute -top-2 -right-2 bg-white text-[#0b3d60] font-bold text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  0
+                </span>
+              </motion.button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </nav>
   );
-}
+};
+
+export default Navbar;
