@@ -4,7 +4,7 @@ import { FaHeart, FaShoppingCart, FaEye } from "react-icons/fa";
 const products = [
   {
     id: 1,
-    name: "Winter Solstice",
+    name: "Nectar Glow Tea Lights",
     price: 80,
     oldPrice: 90,
     image: "https://images.unsplash.com/photo-1514436598301-27a65f40469f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -12,7 +12,7 @@ const products = [
   },
   {
     id: 2,
-    name: "Vanilla Sky",
+    name: "Creame Vanilla Tea Lights",
     price: 70,
     oldPrice: 80,
     image: "https://images.unsplash.com/photo-1605651202774-7d573fd3f12d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -20,7 +20,7 @@ const products = [
   },
   {
     id: 3,
-    name: "Summer Meadow",
+    name: "Musk Star Tea Lights",
     price: 60,
     oldPrice: 70,
     image: "https://images.unsplash.com/photo-1537948756265-406a522f1a45?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -28,7 +28,7 @@ const products = [
   },
   {
     id: 4,
-    name: "Spiced Chai",
+    name: "Ivory Oud",
     price: 80,
     oldPrice: 90,
     image: "https://plus.unsplash.com/premium_photo-1669824023993-273720598b14?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -36,7 +36,7 @@ const products = [
   },
   {
     id: 5,
-    name: "Citrus Bloom",
+    name: "Mulberry Crème",
     price: 75,
     oldPrice: 85,
     image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -44,7 +44,7 @@ const products = [
   },
   {
     id: 6,
-    name: "Ocean Breeze",
+    name: "Petal Muse",
     price: 65,
     oldPrice: 75,
     image: "https://plus.unsplash.com/premium_photo-1666632532494-3780d6cae861?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjF8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -52,7 +52,7 @@ const products = [
   },
   {
     id: 7,
-    name: "Lavender Fields",
+    name: "Sanctum Flame",
     price: 70,
     oldPrice: 80,
     image: "https://images.unsplash.com/photo-1521002988617-015f06b816cc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -60,7 +60,7 @@ const products = [
   },
   {
     id: 8,
-    name: "Rosewood",
+    name: "Mystic Bark",
     price: 85,
     oldPrice: 95,
     image: "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
@@ -68,21 +68,22 @@ const products = [
   },
   {
     id: 9,
-    name: "Amber Nights",
+    name: "French Magic",
     price: 90,
     oldPrice: 100,
     image: "https://images.unsplash.com/photo-1612179543058-ab74d388e0ce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
     sale: true,
   },
   {
-    id: 10,
-    name: "Cinnamon Glow",
-    price: 78,
-    oldPrice: 88,
-    image: "https://images.unsplash.com/photo-1602952706017-f3cc19eb98af?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
+    id: 1,
+    name: "Winter Solstice",
+    price: 80,
+    oldPrice: 90,
+    image: "https://images.unsplash.com/photo-1514436598301-27a65f40469f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
     sale: true,
   },
 ];
+
 
 export default function LimitedEditions() {
   return (

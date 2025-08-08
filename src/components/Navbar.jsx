@@ -39,7 +39,7 @@ const Navbar = () => {
             <img src="Logo.png" alt="Ravangi Logo" className="h-15 w-auto drop-shadow-lg" />
             <span 
               className={`text-2xl font-bold ${
-                scrolled ? "text-[#0b3d60]" : "text-white"
+                scrolled ? "text-[#0b3d60]" : "text-[#f1ead8]"
               }`}
               style={{
                 textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
