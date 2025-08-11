@@ -1,5 +1,5 @@
 import React from "react";
-import CandleRangeSection from "./About";
+import CandleRangeSection from "./CandleRangeSection";
 import BestsellersGrid from "./BestSeller";
 import OurStory from "./Story";
 import LimitedEditions from "./LimitedEdition";

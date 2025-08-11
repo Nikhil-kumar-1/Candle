@@ -18,8 +18,8 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Products", href: "/product" },
     { name: "Collections", href: "#" },
-    { name: "About", href: "#" },
-    { name: "Contact", href: "#" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -106,7 +106,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
-              className={`${scrolled ? "text-[#0b3d60]" : "text-white"} focus:outline-none`}
+              className={`${scrolled ? "text-[#0b3d60]" : "text-black"} focus:outline-none`}
               style={{
                 textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
               }}
