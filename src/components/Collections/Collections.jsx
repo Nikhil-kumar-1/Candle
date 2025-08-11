@@ -1,6 +1,12 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiArrowRight } from "react-icons/fi";
+import Silken from "../../assets/Category/SilkenGlow2.webp";
+import Dusk from "../../assets/Category/DuskRitual.webp";
+import Enchanted from "../../assets/Category/EnchantedWood2.webp";  
+import Mist from "../../assets/Category/MistBloom.webp";
+import Tipsy from "../../assets/Category/TipsyPetal2.webp";
+import Classic from "../../assets/Category/Classic.webp";
 
 const Collections = () => {
   const fadeIn = {
@@ -28,41 +34,42 @@ const Collections = () => {
       id: 1,
       name: "SILKEN GLOW",
       description: "Traditional fragrances inspired by ancient Indian attars",
-      image: "https://images.unsplash.com/photo-1608085021802-e886468f5fc1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
+      image: Silken,
       candles: 12
     },
     {
       id: 2,
       name: "DUSK RITUAL",
       description: "Delicate floral bouquets captured in wax",
-      image: "https://plus.unsplash.com/premium_photo-1695449332324-8e790ea66bf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww",
+      image: Dusk,
       candles: 8
     },
     {
       id: 3,
       name: "ENCHANTED WOODS",
       description: "Warm, earthy fragrances with a spicy kick",
-      image: "https://images.unsplash.com/photo-1477313372947-d68a7d410e9f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww",
+      image: Enchanted,
       candles: 10
     },
     {
       id: 4,
       name: "MIST & BLOOM",
       description: "Limited edition scents for each season",
-      image: "https://images.unsplash.com/photo-1477659803863-c1bf91b34c90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIyfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
+      image: Mist,
       candles: 6
     },
     {
       id: 5,
       name: "TIPSY PETALS",
       description: "Premium candles with rare fragrance oils",
-      image: "https://images.unsplash.com/photo-1705838942246-1002aa0fdd93?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMwfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",
+      image: Tipsy,
+      candles: 5,
     },
     {
       id: 6,
       name: "CLASSIC",
       description: "Aromatherapy candles for relaxation and focus",
-      image: "https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      image: Classic,
       candles: 7
     }
   ];

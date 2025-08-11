@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 const products = [
   {
     id: 1,
-    name: "Lvory Oud",
+    name: "Ivory Oud",
     price: "₹799",
     image: "https://plus.unsplash.com/premium_photo-1695304999895-7605f13f8b02?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8U2FjcmVkJTIwU2FuY3R1YXJ5JTIwY2FuZGxlfGVufDB8fDB8fHww",
     scent: "White Oud",

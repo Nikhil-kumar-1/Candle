@@ -19,7 +19,7 @@ const OurStory = () => {
         </h2>
 
         {/* Underline */}
-        <div className="w-16 h-[2px] bg-white mx-auto my-4"></div>
+        <div className="w-16 h-[2px] bg-white mx-auto my-2"></div>
 
         <p className="text-white text-lg leading-relaxed mb-6">
           Our story starts with a commitment to quality. We use only the finest
