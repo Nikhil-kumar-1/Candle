@@ -25,13 +25,13 @@ const ContactUs = () => {
   return (
     <div className="min-h-screen bg-[#fafaf1] font-poppins overflow-hidden">
       <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
       `}</style>
 
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center bg-[#152336] overflow-hidden">
-        <motion.div 
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1604514281397-7fdd5a6a6951?ixlib=rb-4.1.0&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-30"
+      <section className="relative h-100 flex items-center justify-center bg-[#152336] overflow-hidden">
+        <motion.div
+          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1592155296151-947a1b18843c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGRhbmdlciUyMGNhbmRsZSUyMGJsYWNrfGVufDB8fDB8fHww')] bg-cover bg-center opacity-30"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 1.5, ease: "easeOut" }}
