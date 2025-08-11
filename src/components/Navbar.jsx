@@ -17,7 +17,7 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "Products", href: "/product" },
-    { name: "Collections", href: "#" },
+    { name: "Collections", href: "/collections" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <nav
       className={` top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-white/85 shadow-md" : "bg-white/20"
+        scrolled ? "bg-[#efe9e1] shadow-md" : "bg-[#F8F4EF]"
       } backdrop-blur-md`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -37,16 +37,7 @@ const Navbar = () => {
             className="flex items-center space-x-2"
           >
             <img src="Logo.png" alt="Ravangi Logo" className="h-15 w-auto drop-shadow-lg" />
-            <span 
-              className={`text-2xl font-bold ${
-                scrolled ? "text-[#0b3d60]" : "text-[#0b3d60]"
-              }`}
-              style={{
-                textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.1)",
-              }}
-            >
-              Ravangi
-            </span>
+            
           </motion.div>
 
           {/* Desktop Navigation */}

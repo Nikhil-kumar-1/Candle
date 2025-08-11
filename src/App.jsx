@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import Product from "./components/Product/Product";
 import About from "./components/About/About";
 import ContactUs from "./components/ContactUs/ContactUs";
+import Collections from "./components/Collections/Collections";
+import CollectionDetail from "./components/Collections/CollectionDetails";
 
 const App = () => {
   return (
@@ -21,6 +23,9 @@ const App = () => {
           <Route path="/product" element={<Product />} />
           <Route path="/about" element={<About/>} />
           <Route path="/contact" element={<ContactUs/>} />
+          <Route path="/collections" element={<Collections/>} />
+          <Route path="/collections/:id" element={<CollectionDetail />} />
+
         </Routes>
 
         {/* Footer will be shown on every page */}

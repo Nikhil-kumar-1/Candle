@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import SilkenGlow from "../assets/Category/SilkenGlow2.webp";
+import DuskRitual from "../assets/Category/DuskRitual.webp";
 
 const categories = [
   {
     name: "SILKEN GLOW",
     items: 18,
     hoverText: "Mystical fragrances that transform your space",
-    candleImg: "https://images.unsplash.com/photo-1608085021802-e886468f5fc1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
+    candleImg: SilkenGlow
   },
   {
     name: "DUSK RITUAL",
     items: 18,
     hoverText: "Stellar scents that elevate your senses",
-    candleImg: "https://plus.unsplash.com/premium_photo-1695449332324-8e790ea66bf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww"
+    candleImg: DuskRitual
   },
   {
     name: "ENCHANTED WOODS",
