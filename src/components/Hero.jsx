@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import SilkenGlow from "../assets/Category/SilkenGlow2.webp";
 import DuskRitual from "../assets/Category/DuskRitual.webp";
+import EnchantedWood from "../assets/Category/EnchantedWood2.webp";
+import MIstBloom from "../assets/Category/MistBloom.webp";
+import TipsyPetal from "../assets/Category/TipsyPetal2.webp";
+import Classic  from "../assets/Category/Classic.webp";
+import Cover from "../assets/Category/heart.webp";
 
 const categories = [
   {
@@ -20,32 +25,30 @@ const categories = [
     name: "ENCHANTED WOODS",
     items: 18,
     hoverText: "Free-spirited aromas for your wanderlust soul",
-    candleImg: "https://images.unsplash.com/photo-1477313372947-d68a7d410e9f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww"
+    candleImg: EnchantedWood
   },
   {
     name: "MIST & BLOOM",
     items: 18,
     hoverText: "Warm coffee-inspired fragrances to awaken",
-    candleImg: "https://images.unsplash.com/photo-1477659803863-c1bf91b34c90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIyfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
+    candleImg: MIstBloom
   },
   {
     name: "TIPSY PETALS",
     items: 18,
     hoverText: "Our most loved creations by customers",
-    candleImg: "https://images.unsplash.com/photo-1705838942246-1002aa0fdd93?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMwfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
+    candleImg: TipsyPetal
   },
   {
     name: "CLASSIC",
     items: 18,
     hoverText: "Zesty and refreshing energy boosters",
-    candleImg: "https://images.unsplash.com/photo-1683640862718-c001169c8514?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D"
+    candleImg: Classic
   },
 ];
 
 export default function HeroSection() {
-  const [bgImage, setBgImage] = useState(
-    "https://images.unsplash.com/photo-1636714477840-3968c444f8ed"
-  );
+  const [bgImage, setBgImage] = useState(Cover);
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   return (
@@ -80,7 +83,7 @@ export default function HeroSection() {
                 setHoveredIndex(index);
               }}
               onMouseLeave={() => {
-                setBgImage("https://images.unsplash.com/photo-1636714477840-3968c444f8ed");
+                setBgImage(Cover);
                 setHoveredIndex(null);
               }}
               className="relative h-48 cursor-pointer group"

@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { FiMenu, FiX, FiShoppingCart, FiSearch } from "react-icons/fi";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,16 +37,16 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <img src="Logo.png" alt="Ravangi Logo" className="h-15 w-auto drop-shadow-lg" />
-            
+            <Link to="/">
+              <img src="Logo.png" alt="Ravangi Logo" className="h-15 w-auto drop-shadow-lg" />
+            </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
-              <motion.a
+              <motion.div
                 key={item.name}
-                href={item.href}
                 className={`relative font-medium px-3 py-2 ${
                   scrolled ? "text-[#0b3d60]" : "text-[#0b3d60]"
                 }`}
@@ -54,15 +55,17 @@ const Navbar = () => {
                 }}
                 whileHover={{ scale: 1.05 }}
               >
-                {item.name}
-                <motion.span
-                  className={`absolute bottom-0 left-0 w-0 h-0.5 ${
-                    scrolled ? "bg-[#0b3d60]" : "bg-white"
-                  }`}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.a>
+                <Link to={item.href}>
+                  {item.name}
+                  <motion.span
+                    className={`absolute bottom-0 left-0 w-0 h-0.5 ${
+                      scrolled ? "bg-[#0b3d60]" : "bg-white"
+                    }`}
+                    whileHover={{ width: "100%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </Link>
+              </motion.div>
             ))}
           </div>
 
@@ -120,16 +123,17 @@ const Navbar = () => {
         >
           <div className="px-2 pt-2 pb-3 space-y-2">
             {navItems.map((item) => (
-              <motion.a
+              <motion.div
                 key={item.name}
-                href={item.href}
                 className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded"
                 style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
                 whileHover={{ x: 5 }}
                 onClick={() => setIsOpen(false)}
               >
-                {item.name}
-              </motion.a>
+                <Link to={item.href}>
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
             <div className="flex space-x-4 px-3 py-2">
               <motion.button 
