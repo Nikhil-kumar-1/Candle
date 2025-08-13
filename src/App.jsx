@@ -13,12 +13,14 @@ import CollectionDetail from "./components/Collections/CollectionDetails";
 import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import FloatingButtons from "./components/WhatsApp";
 import TermsAndConditions from "./components/TermAndCondition/TermsAndCondition";
+import ScrollToTop from "./components/ScrollToTop";
 
 
 const App = () => {
   return (
     <Router>
       <div>
+        <ScrollToTop />
         <Navbar />
         {/* Routes for different pages */}
         <Routes>
