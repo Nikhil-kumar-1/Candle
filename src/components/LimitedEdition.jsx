@@ -76,7 +76,7 @@ const products = [
   },
   {
     id: 1,
-    name: "Winter Solstice",
+    name: "velvet bloom",
     price: 80,
     oldPrice: 90,
     image: "https://images.unsplash.com/photo-1514436598301-27a65f40469f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D",

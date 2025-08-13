@@ -56,7 +56,7 @@ export default function Footer() {
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 <a 
-                  href={`#${link.toLowerCase().replace(' ', '-')}`} 
+                  href={`${link.toLowerCase().replace(' ', '-')}`} 
                   className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
                 >
                   {link}
@@ -70,14 +70,14 @@ export default function Footer() {
         <motion.div variants={item}>
           <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">SERVICES</h3>
           <ul className="space-y-3">
-            {['Sitemap', 'Privacy Policy', 'Your Account', 'Advanced Search', 'Terms & Conditions', 'Contact Us'].map((link) => (
+            {['Sitemap', 'Privacy Policy', 'Your Account', 'Advanced Search', 'Terms-&-Conditions', 'Contact'].map((link) => (
               <motion.li 
                 key={link}
                 whileHover={{ x: 5 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               >
                 <a 
-                  href={`#${link.toLowerCase().replace(' ', '-')}`} 
+                  href={`${link.toLowerCase().replace(' ', '-')}`} 
                   className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
                 >
                   {link}

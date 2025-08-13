@@ -10,6 +10,10 @@ import About from "./components/About/About";
 import ContactUs from "./components/ContactUs/ContactUs";
 import Collections from "./components/Collections/Collections";
 import CollectionDetail from "./components/Collections/CollectionDetails";
+import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
+import FloatingButtons from "./components/WhatsApp";
+import TermsAndConditions from "./components/TermAndCondition/TermsAndCondition";
+
 
 const App = () => {
   return (
@@ -25,10 +29,16 @@ const App = () => {
           <Route path="/contact" element={<ContactUs/>} />
           <Route path="/collections" element={<Collections/>} />
           <Route path="/collections/:id" element={<CollectionDetail />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
+          <Route path="/terms-&-conditions" element={<TermsAndConditions />} />
 
         </Routes>
 
         {/* Footer will be shown on every page */}
+        
+   
+        <FloatingButtons />
+      
         <Footer />
       </div>
     </Router>

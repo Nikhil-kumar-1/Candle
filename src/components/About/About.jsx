@@ -1,8 +1,10 @@
-import { motion } from "framer-motion";
-import { FiAward, FiUsers, FiHeart, FiCheck } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
+import { FiClock, FiUsers, FiHeart, FiCheck } from "react-icons/fi";
 import { FaLeaf } from "react-icons/fa";
+import { useState } from "react";
 
 const About = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.8 } },
@@ -24,7 +26,7 @@ const About = () => {
   };
 
   const stats = [
-    { icon: <FiAward size={32} />, value: "100+", label: "Awards Won" },
+    { icon: <FiClock size={32} />, value: "Handmade", label: "With Love" },
     { icon: <FaLeaf size={32} />, value: "Eco-Friendly", label: "Materials" },
     { icon: <FiUsers size={32} />, value: "50k+", label: "Happy Customers" },
     { icon: <FiHeart size={32} />, value: "5-Star", label: "Reviews" },
@@ -60,7 +62,7 @@ const About = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Crafting moments of serenity through the art of fragrance
+            Lighting up the journey through the moments that matters
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
@@ -116,7 +118,18 @@ const About = () => {
               variants={slideUp}
               className="text-xl text-[#152336]/90 max-w-12xl mx-auto"
             >
-              Ravangi candles are crafted using high-quality natural waxes like soy, soy-coconut, and beeswax, combined with premium fragrance oils and 100% cotton wicks to ensure a clean, long-lasting burn. Each candle is handcrafted with care for a personal touch and made from safe, non-toxic ingredients. They feature stylish designs that complement any home decor and offer a wide variety of scents suited for different moods and seasons. Committed to eco-friendliness, Ravangi uses cruelty-free, recyclable materials. They also provide customizable options and gift sets for special occasions, along with refill services for glass containers. Additionally, white labeling services are available for businesses wanting their own candle line.
+              Ravangi candles are crafted using high-quality natural waxes like
+              soy, soy-coconut, and beeswax, combined with premium fragrance
+              oils and 100% cotton wicks to ensure a clean, long-lasting burn.
+              Each candle is handcrafted with care for a personal touch and made
+              from safe, non-toxic ingredients. They feature stylish designs
+              that complement any home decor and offer a wide variety of scents
+              suited for different moods and seasons. Committed to
+              eco-friendliness, Ravangi uses cruelty-free, recyclable materials.
+              They also provide customizable options and gift sets for special
+              occasions, along with refill services for glass containers.
+              Additionally, white labeling services are available for businesses
+              wanting their own candle line.
             </motion.p>
           </motion.div>
 
@@ -129,9 +142,9 @@ const About = () => {
                 icon: "✨",
               },
               {
-                title: "Signature Scents",
+                title: "Trusted Fragrance",
                 description:
-                  "Our perfumers create unique, complex fragrances you won't find anywhere else, designed to evoke emotion and memory.",
+                  "We source our fragrance oils from trusted, highh quality suppliers to ensure every candle delivers a rich, lasting scent experience.",
                 icon: "👃",
               },
               {
@@ -158,56 +171,169 @@ const About = () => {
       </section>
 
       {/* Our Story */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+      <section className="py-10 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-full text-center mx-auto">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+            className="grid grid-cols-1 gap-16 items-center"
           >
-            <motion.div variants={slideUp} className="relative">
-              <div className="relative z-10 rounded-xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1544439651-82a50b48f9cb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fGRhbmdlciUyMGNhbmRsZSUyMGJsYWNrfGVufDB8fDB8fHww"
-                  alt="Candle making process"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-12 -right-12 w-48 h-48 bg-[#152336] rounded-full opacity-20 z-0"></div>
-            </motion.div>
-
             <motion.div variants={slideUp}>
-              <h2 className="text-3xl md:text-4xl font-bold text-[#152336] mb-6">
+              <h2 className="text-3xl text-center md:text-4xl font-bold text-[#152336] mb-6">
                 The <span className="text-[#f4aa2d]">Ravangi</span> Story
               </h2>
-              <p className="text-lg text-[#152336]/90 mb-6">
-                Founded in 2015 by Priya Sharma, Ravangi began as a small
-                passion project in a Mumbai apartment. Priya, a self-taught
-                perfumer, started blending essential oils to create candles that
-                reminded her of childhood memories - her grandmother's spice
-                cupboard, monsoon rains on warm earth, and jasmine flowers at
-                twilight.
-              </p>
-              <p className="text-lg text-[#152336]/90 mb-6">
-                What began with hand-pouring candles for friends and family
-                quickly grew into a beloved local brand. Today, while we've
-                expanded our operations, each Ravangi candle is still
-                handcrafted using the same careful techniques Priya developed in
-                those early days.
-              </p>
-              <p className="text-lg text-[#152336]/90 mb-8">
-                Our name "Ravangi" comes from the Hindi word for fragrance,
-                reflecting our deep connection to Indian heritage while creating
-                scents that resonate globally.
-              </p>
+
+              <div className="space-y-6">
+                {/* Always visible preview content */}
+                <p className="text-lg text-[#152336]/90">
+                  <span className="font-bold">
+                    By Sakshi Prakash, Founder & Creative Heart Behind Ravangi
+                  </span>
+                </p>
+
+                <p className="text-lg text-[#152336]/90">
+                  Since I was young, I’ve been drawn to the unspoken language of
+                  color, texture, and form — how they could express what words
+                  often couldn’t. But it wasn’t until I discovered the quiet
+                  alchemy of fragrance that everything truly clicked.
+                </p>
+
+                <p className="text-lg text-[#152336]/90">
+                  That's when I found my canvas:{" "}
+                  <span className="font-bold">the candle</span>.
+                </p>
+
+                {/* Expandable content */}
+                <AnimatePresence>
+                  {isExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.4 }}
+                      className="overflow-hidden space-y-6"
+                    >
+                      <p className="text-lg text-[#152336]/90">
+                        Simple, timeless, and endlessly expressive. A single
+                        flame, wrapped in scent and color, had the power to hold
+                        a whole moment — to shift a mood, evoke a memory, or
+                        offer comfort in silence. I wasn’t just making candles;{" "}
+                        <span className="font-bold">
+                          I wasn't just making candles; I was crafting
+                          experiences.
+                        </span>
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90">
+                        <span className="font-bold">
+                          Ravangi was born out of that idea
+                        </span>{" "}
+                        — that the small, everyday rituals we create can become
+                        meaningful journeys.
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90">
+                        For me, candle-making is deeply personal. I started by
+                        experimenting — blending waxes, mixing pigments,
+                        layering fragrances — sometimes with beautiful results,
+                        sometimes with lessons learned. But every creation felt
+                        like a piece of my inner world taking shape.
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90">
+                        From the start, I knew each candle had to tell a story —
+                        not just through scent, but through shape, color, and
+                        feeling. Each one is designed with intention:{" "}
+                        <span className="font-bold">
+                          to transform a space, to reflect a mood, and to invite
+                          presence
+                        </span>
+                        .
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90">
+                        The name{" "}
+                        <span className="font-bold">
+                          "Ravangi" means "to begin a journey"
+                        </span>{" "}
+                        — and that's exactly what we hope our candles inspire.
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90">
+                        Every time a wick is lit, a new experience begins. The
+                        fragrance unfolds like a story, guiding the senses
+                        through warmth, calm, memory, or imagination. Just like
+                        a real journey, it can take you somewhere familiar or
+                        entirely new — even if you never leave the room.
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90">
+                        At Ravangi, we hand-pour each candle with care, using
+                        sustainable materials and a deep respect for
+                        craftsmanship. But more than that,{" "}
+                        <span className="font-bold">
+                          we pour intention into every piece
+                        </span>{" "}
+                        — because we believe beauty should feel meaningful.
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90">
+                        If one of our candles finds its way into your life, I
+                        hope it brings light, comfort, and a sense of quiet
+                        wonder — just like it has in mine.
+                      </p>
+
+                      <p className="text-lg text-[#152336]/90 italic">
+                        — Sakshi Prakash
+                        <br />
+                        Founder, Ravangi
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <motion.button
+                onClick={() => setIsExpanded(!isExpanded)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-[#2d526e] hover:bg-[#152336] text-white font-medium rounded-lg shadow-lg transition-colors duration-300"
+                className="cursor-pointer  mt-8 px-8 py-3 bg-[#2d526e] hover:bg-[#152336] text-white font-medium rounded-lg shadow-lg transition-colors duration-300 flex items-center mx-auto"
               >
-                Read Founder's Story
+                {isExpanded ? (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Show Less
+                  </>
+                ) : (
+                  <>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 mr-2"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Read Full Story
+                  </>
+                )}
               </motion.button>
             </motion.div>
           </motion.div>
@@ -263,8 +389,8 @@ const About = () => {
                   Purpose
                 </h3>
                 <p>
-                  To create products that enhance wellbeing through thoughtful
-                  scent experiences
+                  create products that elevate everyday moments through
+                  thoughtful design and immersive sensory experiences.
                 </p>
               </div>
               <div className="bg-[#2d526e]/30 p-6 rounded-lg">
@@ -281,8 +407,9 @@ const About = () => {
                   Vision
                 </h3>
                 <p>
-                  To become the most trusted name in artisanal fragrance
-                  worldwide
+                  To be a trusted, soulful brand that redefines home rituals
+                  through mindful, sustainable, and artfully crafted sensory
+                  experiences.
                 </p>
               </div>
             </motion.div>
@@ -432,15 +559,15 @@ const About = () => {
                 icon: "🌱",
               },
               {
-                title: "Craftsmanship",
+                title: "Intenionality",
                 description:
-                  "Each candle is hand-poured with care by our skilled artisans who take pride in every detail.",
+                  "We believe in creating with purpose — from design to scent to sustainability — every element is chosen with care.",
                 icon: "✨",
               },
               {
-                title: "Innovation",
+                title: "Sensory Connection",
                 description:
-                  "Our perfumers constantly experiment with unique fragrance combinations to create unforgettable scents.",
+                  "We craft immersive experiences that engage the senses and evoke emotion — not just products, but moments.",
                 icon: "🔮",
               },
             ].map((value, index) => (
