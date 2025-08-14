@@ -50,28 +50,37 @@ export default function Footer() {
         <motion.div variants={item}>
           <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">INFO</h3>
           <ul className="space-y-3">
+            
             <motion.li 
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              <Link to="/custom-service" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                Custom Service
+              <Link to="/" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Home
               </Link>
             </motion.li>
             <motion.li 
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              <Link to="/faq" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                F.A.Q.
+              <Link to="/about" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                About
               </Link>
             </motion.li>
             <motion.li 
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              <Link to="/order-tracking" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                Order Tracking
+              <Link to="/product" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Products
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/collections" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Collections
               </Link>
             </motion.li>
             <motion.li 
@@ -82,28 +91,14 @@ export default function Footer() {
                 Contact Us
               </Link>
             </motion.li>
-            <motion.li 
-              whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            >
-              <Link to="/events" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                Events
-              </Link>
-            </motion.li>
-            <motion.li 
-              whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            >
-              <Link to="/popular" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                Popular
-              </Link>
-            </motion.li>
+            
+            
           </ul>
         </motion.div>
 
         {/* Services Links */}
         <motion.div variants={item}>
-          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">SERVICES</h3>
+          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">LINKS</h3>
           <ul className="space-y-3">
             <motion.li 
               whileHover={{ x: 5 }}
@@ -125,18 +120,11 @@ export default function Footer() {
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
-              <Link to="/your-account" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                Your Account
+              <Link to="/faq" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                F.A.Q
               </Link>
             </motion.li>
-            <motion.li 
-              whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-            >
-              <Link to="/advanced-search" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                Advanced Search
-              </Link>
-            </motion.li>
+            
             <motion.li 
               whileHover={{ x: 5 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
@@ -150,7 +138,7 @@ export default function Footer() {
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
             >
               <Link to="/contact" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
-                Contact
+                Contact Us
               </Link>
             </motion.li>
           </ul>

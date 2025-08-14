@@ -31,7 +31,9 @@ const OurStory = () => {
         </p>
 
         {/* Read More Button */}
-        <button className="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-[#F6C89F] hover:text-[#2C1E16] transition-all duration-300">
+        <button onClick={()=>{
+          window.location.href = "/about"; // Redirect to the About page
+        }} className="bg-white cursor-pointer text-black px-6 py-2 rounded-full font-medium hover:bg-[#F6C89F] hover:text-[#2C1E16] transition-all duration-300">
           READ MORE
         </button>
       </div>

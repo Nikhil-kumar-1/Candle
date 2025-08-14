@@ -14,6 +14,7 @@ import PrivacyPolicy from "./components/PrivacyPolicy/PrivacyPolicy";
 import FloatingButtons from "./components/WhatsApp";
 import TermsAndConditions from "./components/TermAndCondition/TermsAndCondition";
 import ScrollToTop from "./components/ScrollToTop";
+import FAQ from "./components/Faq/Faq";
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
           <Route path="/collections/:id" element={<CollectionDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy/>} />
           <Route path="/terms-&-conditions" element={<TermsAndConditions />} />
+          <Route path="/faq" element={<FAQ />} />
 
         </Routes>
 

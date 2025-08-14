@@ -297,7 +297,7 @@ const About = () => {
                   Simple, timeless, and endlessly expressive. A single
                   flame, wrapped in scent and color, had the power to hold
                   a whole moment — to shift a mood, evoke a memory, or
-                  offer comfort in silence. I wasn't just making candles;{" "}
+                  offer comfort in silence;{" "}
                   <span className="font-bold">
                     I wasn't just making candles; I was crafting
                     experiences.

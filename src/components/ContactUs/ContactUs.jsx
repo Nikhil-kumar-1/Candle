@@ -308,7 +308,7 @@ const ContactUs = () => {
           <motion.button
             whileHover={{ scale: 1.05, backgroundColor: "#f4aa2d" }}
             whileTap={{ scale: 0.95 }}
-            className="px-8 py-3 bg-[#2d526e] text-white font-medium rounded-lg shadow-lg transition-all duration-300"
+            className="px-8 py-3 cursor-pointer bg-[#2d526e] text-white font-medium rounded-lg shadow-lg transition-all duration-300"
           >
             Chat With an Expert
           </motion.button>
