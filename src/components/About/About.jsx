@@ -435,7 +435,7 @@ const About = () => {
                   Purpose
                 </h3>
                 <p>
-                  create products that elevate everyday moments through
+                  Create products that elevate everyday moments through
                   thoughtful design and immersive sensory experiences.
                 </p>
               </div>
@@ -445,7 +445,7 @@ const About = () => {
                 </h3>
                 <p>
                   To never compromise on quality, ethics, or the artistry of our
-                  craft
+                  craft.
                 </p>
               </div>
               <div className="bg-[#2d526e]/30 p-6 rounded-lg">
@@ -482,7 +482,7 @@ const About = () => {
                 <div className="text-[#f4aa2d] mb-4 flex justify-center">
                   {stat.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-[#152336] mb-2">
+                <h3 className="text-l font-bold text-[#152336] mb-2">
                   {stat.value}
                 </h3>
                 <p className="text-[#152336]/80">{stat.label}</p>
