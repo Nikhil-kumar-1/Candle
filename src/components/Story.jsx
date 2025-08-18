@@ -19,7 +19,7 @@ const OurStory = () => {
         </h2>
 
         {/* Underline */}
-        <div className="w-16 h-[2px] bg-white mx-auto my-4"></div>
+        <div className="w-16 h-[2px] bg-white mx-auto my-2"></div>
 
         <p className="text-white text-lg leading-relaxed mb-6">
           Our story starts with a commitment to quality. We use only the finest
@@ -31,7 +31,9 @@ const OurStory = () => {
         </p>
 
         {/* Read More Button */}
-        <button className="bg-white text-black px-6 py-2 rounded-full font-medium hover:bg-[#F6C89F] hover:text-[#2C1E16] transition-all duration-300">
+        <button onClick={()=>{
+          window.location.href = "/about"; // Redirect to the About page
+        }} className="bg-white cursor-pointer text-black px-6 py-2 rounded-full font-medium hover:bg-[#F6C89F] hover:text-[#2C1E16] transition-all duration-300">
           READ MORE
         </button>
       </div>

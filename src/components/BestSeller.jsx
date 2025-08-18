@@ -4,42 +4,42 @@ import { motion } from "framer-motion";
 const products = [
   {
     id: 1,
-    name: "Sacred Sanctuary",
+    name: "Ivory Oud",
     price: "₹799",
     image: "https://plus.unsplash.com/premium_photo-1695304999895-7605f13f8b02?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8U2FjcmVkJTIwU2FuY3R1YXJ5JTIwY2FuZGxlfGVufDB8fDB8fHww",
-    scent: "Sandalwood & Vanilla",
+    scent: "White Oud",
     burnTime: "60 hours"
   },
   {
     id: 2,
-    name: "Sunset Serenade",
+    name: "Mystic Bark",
     price: "₹899",
     image: "https://images.unsplash.com/photo-1631729371254-42c2892f0e6e",
-    scent: "Amber & Citrus",
+    scent: "Oud & Sandalwood",
     burnTime: "55 hours"
   },
   {
     id: 3,
-    name: "Prairie Bliss",
+    name: "Sanctum Flame",
     price: "₹999",
     image: "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFyaXNzJTIwYmxpc3MlMjBjYW5kbGV8ZW58MHx8MHx8fDA%3D",
-    scent: "Lavender & Sage",
+    scent: "Sandalwood & Patchouli",
     burnTime: "70 hours"
   },
   {
     id: 4,
-    name: "Lavender Fields",
+    name: "Pearl Vanilla",
     price: "₹849",
     image: "https://images.unsplash.com/photo-1605101600616-a8c6db5b98aa",
-    scent: "Pure Lavender",
+    scent: "French Vanilla",
     burnTime: "65 hours"
   },
   {
     id: 5,
-    name: "Citrus Bloom",
+    name: "Silk Petals",
     price: "₹899",
     image: "https://images.unsplash.com/photo-1668699011542-155f8553220d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y2l0cnVzJTIwYmxvb20lMjBjYW5kbGV8ZW58MHx8MHx8fDA%3D",
-    scent: "Orange & Grapefruit",
+    scent: "Gucci Floral",
     burnTime: "50 hours"
   },
   {
@@ -47,7 +47,7 @@ const products = [
     name: "Rosewood Charm",
     price: "₹749",
     image: "https://images.unsplash.com/photo-1603959452586-78397d087b62",
-    scent: "Rose & Cedar",
+    scent: "Tea Rose & Wood",
     burnTime: "45 hours"
   }
 ];

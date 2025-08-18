@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiFilter, FiX, FiChevronDown, FiChevronUp, FiStar, FiShoppingCart } from 'react-icons/fi';
-
+import Cover from '../../assets/Category/CoverPhoto.webp';
+import SilkenGlow from '../../assets/Category/SilkenGlow2.webp';
+import DuskRitual from '../../assets/Category/DuskRitual.webp';
+import EnchantedWood from '../../assets/Category/EnchantedWood2.webp';
+import MIstBloom from '../../assets/Category/MistBloom.webp';
+import TipsyPetal from '../../assets/Category/TipsyPetal2.webp';
+import Classic from '../../assets/Category/Classic.webp';
 const ProductPage = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [priceRange, setPriceRange] = useState([0, 1000]);
@@ -18,7 +24,7 @@ const ProductPage = () => {
     rating: 4.5, 
     description: 'Soft lavender and creamy vanilla notes blend to create a calming ambiance, perfect for unwinding after a long day.',
     details: '100% soy wax, 50hr burn time, phthalate-free fragrance, hand-poured in small batches',
-    image: 'https://images.unsplash.com/photo-1608085021802-e886468f5fc1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D' 
+    image: SilkenGlow
   },
   { 
     id: 2, 
@@ -28,9 +34,9 @@ const ProductPage = () => {
     rating: 4.2, 
     description: 'Bright citrus blend of orange, lemon, and grapefruit to energize your space and uplift your mood.',
     details: '100% soy wax, 45hr burn time, phthalate-free fragrance, eco-friendly packaging',
-    image: 'https://plus.unsplash.com/premium_photo-1695449332324-8e790ea66bf0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww' 
+    image: DuskRitual
   },
-  { 
+{
     id: 3, 
     name: 'ENCHANTED WOODS', 
     price: 29.99, 
@@ -38,7 +44,7 @@ const ProductPage = () => {
     rating: 4.8, 
     description: 'Warm vanilla intertwined with caramel and almond notes for a cozy, inviting fragrance.',
     details: '100% soy wax, 60hr burn time, phthalate-free fragrance, slow-burning wick',
-    image: 'https://images.unsplash.com/photo-1477313372947-d68a7d410e9f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODR8fGJsYWNrJTIwY2FuZGxlfGVufDB8fDB8fHww' 
+    image: EnchantedWood
   },
   { 
     id: 4, 
@@ -48,7 +54,7 @@ const ProductPage = () => {
     rating: 4.3, 
     description: 'Refreshing aquatic notes combined with sea salt and driftwood to create a crisp and clean atmosphere.',
     details: '100% soy wax, 48hr burn time, phthalate-free fragrance, natural cotton wick',
-    image: 'https://images.unsplash.com/photo-1477659803863-c1bf91b34c90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTIyfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D' 
+    image: MIstBloom
   },
   { 
     id: 5, 
@@ -58,7 +64,7 @@ const ProductPage = () => {
     rating: 4.6, 
     description: 'Rich sandalwood fused with warm amber and floral petals for a sophisticated and grounding aroma.',
     details: '100% soy wax, 55hr burn time, phthalate-free fragrance, eco-friendly soy wax blend',
-    image: 'https://images.unsplash.com/photo-1705838942246-1002aa0fdd93?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTMwfHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D' 
+    image: TipsyPetal 
   },
   { 
     id: 6, 
@@ -68,7 +74,7 @@ const ProductPage = () => {
     rating: 4.7, 
     description: 'Elegant bouquet of fresh roses complemented with subtle green undertones for a timeless floral scent.',
     details: '100% soy wax, 52hr burn time, phthalate-free fragrance, handmade with premium ingredients',
-    image: 'https://images.unsplash.com/photo-1683640862718-c001169c8514?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTQ4fHxibGFjayUyMGNhbmRsZXxlbnwwfHwwfHx8MA%3D%3D' 
+    image: Classic
   },
 ];
 
@@ -102,40 +108,49 @@ const ProductPage = () => {
       `}</style>
       
       {/* Hero Section */}
-      <div className="relative h-96 w-full bg-[#152336] overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1636714477840-3968c444f8ed?w=1200&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2FuZGxlJTIwZmFjdG9yeXxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center opacity-50" />
-        <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
-          <div className="max-w-2xl">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-bold text-[#f1ead8] mb-4"
-            >
-              Handcrafted Candles
-            </motion.h1>
-            <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-[#f1ead8]/90 mb-8"
-            >
-              Each candle is carefully crafted with premium ingredients for the perfect ambiance
-            </motion.p>
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="px-8 py-3 cursor-pointer bg-[#f4aa2d] hover:bg-[#e69c27] text-[#152336] font-medium rounded-lg shadow-lg transition-colors duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Shop Now
-            </motion.button>
-          </div>
-        </div>
-      </div>
+     <div className="relative h-96 w-full bg-[#152336] overflow-hidden">
+  {/* Background Image */}
+  <div
+    className="absolute inset-0 bg-cover bg-center opacity-50"
+    style={{
+      backgroundImage: `url(${Cover})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  />
 
+  {/* Content Overlay */}
+  <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
+    <div className="max-w-2xl">
+      <motion.h1
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold text-[#f1ead8] mb-4"
+      >
+        Handcrafted Candles
+      </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="text-xl text-[#f1ead8]/90 mb-8"
+      >
+        Each candle is carefully crafted with premium ingredients for the perfect ambiance
+      </motion.p>
+      <motion.button
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="px-8 py-3 cursor-pointer bg-[#f4aa2d] hover:bg-[#e69c27] text-[#152336] font-medium rounded-lg shadow-lg transition-colors duration-300"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Shop Now
+      </motion.button>
+    </div>
+  </div>
+</div>
       {/* Main Content */}
       <div className="pt-12 pb-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

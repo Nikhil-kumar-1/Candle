@@ -1,6 +1,7 @@
 import { FaFacebookF, FaInstagram, FaBehance, FaTwitter } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 // Animation variants
 const container = {
@@ -49,41 +50,97 @@ export default function Footer() {
         <motion.div variants={item}>
           <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">INFO</h3>
           <ul className="space-y-3">
-            {['Custom Service', 'F.A.Q.', 'Order Tracking', 'Contact Us', 'Events', 'Popular'].map((link) => (
-              <motion.li 
-                key={link}
-                whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              >
-                <a 
-                  href={`#${link.toLowerCase().replace(' ', '-')}`} 
-                  className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
-                >
-                  {link}
-                </a>
-              </motion.li>
-            ))}
+            
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Home
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/about" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                About
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/product" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Products
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/collections" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Collections
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/contact" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Contact Us
+              </Link>
+            </motion.li>
+            
+            
           </ul>
         </motion.div>
 
         {/* Services Links */}
         <motion.div variants={item}>
-          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">SERVICES</h3>
+          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">LINKS</h3>
           <ul className="space-y-3">
-            {['Sitemap', 'Privacy Policy', 'Your Account', 'Advanced Search', 'Terms & Conditions', 'Contact Us'].map((link) => (
-              <motion.li 
-                key={link}
-                whileHover={{ x: 5 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              >
-                <a 
-                  href={`#${link.toLowerCase().replace(' ', '-')}`} 
-                  className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
-                >
-                  {link}
-                </a>
-              </motion.li>
-            ))}
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/sitemap" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Sitemap
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/privacy-policy" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Privacy Policy
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/faq" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                F.A.Q
+              </Link>
+            </motion.li>
+            
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/terms-&-conditions" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Terms & Conditions
+              </Link>
+            </motion.li>
+            <motion.li 
+              whileHover={{ x: 5 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            >
+              <Link to="/contact" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+                Contact Us
+              </Link>
+            </motion.li>
           </ul>
         </motion.div>
 
@@ -107,24 +164,46 @@ export default function Footer() {
             </button>
           </motion.div>
           <div className="flex space-x-3">
-            {[
-              { icon: <FaTwitter />, url: "https://twitter.com" },
-              { icon: <FaFacebookF />, url: "https://facebook.com" },
-              { icon: <FaBehance />, url: "https://behance.net" },
-              { icon: <FaInstagram />, url: "https://instagram.com" }
-            ].map((social, index) => (
-              <motion.a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
-                whileHover={{ scale: 1.1, rotate: 10 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                {social.icon}
-              </motion.a>
-            ))}
+            <motion.a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
+              whileHover={{ scale: 1.1, rotate: 10 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaTwitter />
+            </motion.a>
+            <motion.a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
+              whileHover={{ scale: 1.1, rotate: 10 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaFacebookF />
+            </motion.a>
+            <motion.a
+              href="https://behance.net"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
+              whileHover={{ scale: 1.1, rotate: 10 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaBehance />
+            </motion.a>
+            <motion.a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
+              whileHover={{ scale: 1.1, rotate: 10 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <FaInstagram />
+            </motion.a>
           </div>
         </motion.div>
       </motion.div>
