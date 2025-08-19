@@ -1,11 +1,17 @@
 import { motion, AnimatePresence } from "framer-motion";
-import {  FiUsers, FiHeart, FiCheck, FiChevronDown, FiChevronUp } from "react-icons/fi";
+import {
+  FiUsers,
+  FiHeart,
+  FiCheck,
+  FiChevronDown,
+  FiChevronUp,
+} from "react-icons/fi";
 import { FaLeaf, FaHandPaper } from "react-icons/fa";
 import { useState } from "react";
 
 const About = () => {
   const [isExpanded, setIsExpanded] = useState(false);
-  
+
   // Animation variants
   const fadeIn = {
     hidden: { opacity: 0 },
@@ -14,13 +20,13 @@ const About = () => {
 
   const slideUp = {
     hidden: { y: 50, opacity: 0 },
-    visible: { 
-      y: 0, 
-      opacity: 1, 
-      transition: { 
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
         duration: 0.6,
-        ease: [0.16, 1, 0.3, 1] 
-      } 
+        ease: [0.16, 1, 0.3, 1],
+      },
     },
   };
 
@@ -46,7 +52,7 @@ const About = () => {
       <style jsx global>{`
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
         body {
-          font-family: 'Poppins', sans-serif;
+          font-family: "Poppins", sans-serif;
         }
       `}</style>
 
@@ -175,7 +181,9 @@ const About = () => {
                 <h3 className="text-xl font-bold text-[#152336] mb-3">
                   {item.title}
                 </h3>
-                <p className="text-[#152336]/90 leading-relaxed">{item.description}</p>
+                <p className="text-[#152336]/90 leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -194,7 +202,7 @@ const About = () => {
               className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
             >
               {/* Image Column */}
-              <motion.div 
+              <motion.div
                 variants={slideUp}
                 className="relative h-full min-h-[400px] rounded-xl overflow-hidden shadow-lg"
               >
@@ -211,7 +219,9 @@ const About = () => {
                     className="text-white"
                   >
                     <p className="text-sm font-light">Handcrafting Process</p>
-                    <h3 className="text-xl font-bold mt-1">The Art of Candle Making</h3>
+                    <h3 className="text-xl font-bold mt-1">
+                      The Art of Candle Making
+                    </h3>
                   </motion.div>
                 </div>
               </motion.div>
@@ -230,10 +240,10 @@ const About = () => {
                   </p>
 
                   <p className="text-lg text-[#152336]/90 leading-relaxed">
-                    Since I was young, I've been drawn to the unspoken language of
-                    color, texture, and form — how they could express what words
-                    often couldn't. But it wasn't until I discovered the quiet
-                    alchemy of fragrance that everything truly clicked.
+                    Since I was young, I've been drawn to the unspoken language
+                    of color, texture, and form — how they could express what
+                    words often couldn't. But it wasn't until I discovered the
+                    quiet alchemy of fragrance that everything truly clicked.
                   </p>
 
                   <p className="text-lg text-[#152336]/90 leading-relaxed">
@@ -294,13 +304,12 @@ const About = () => {
                 </p>
 
                 <p>
-                  Simple, timeless, and endlessly expressive. A single
-                  flame, wrapped in scent and color, had the power to hold
-                  a whole moment — to shift a mood, evoke a memory, or
-                  offer comfort in silence;{" "}
+                  Simple, timeless, and endlessly expressive. A single flame,
+                  wrapped in scent and color, had the power to hold a whole
+                  moment — to shift a mood, evoke a memory, or offer comfort in
+                  silence;{" "}
                   <span className="font-bold">
-                    I wasn't just making candles; I was crafting
-                    experiences.
+                    I wasn't just making candles; I was crafting experiences.
                   </span>
                 </p>
 
@@ -314,16 +323,16 @@ const About = () => {
 
                 <p>
                   For me, candle-making is deeply personal. I started by
-                  experimenting — blending waxes, mixing pigments,
-                  layering fragrances — sometimes with beautiful results,
-                  sometimes with lessons learned. But every creation felt
-                  like a piece of my inner world taking shape.
+                  experimenting — blending waxes, mixing pigments, layering
+                  fragrances — sometimes with beautiful results, sometimes with
+                  lessons learned. But every creation felt like a piece of my
+                  inner world taking shape.
                 </p>
 
                 <p>
-                  From the start, I knew each candle had to tell a story —
-                  not just through scent, but through shape, color, and
-                  feeling. Each one is designed with intention:{" "}
+                  From the start, I knew each candle had to tell a story — not
+                  just through scent, but through shape, color, and feeling.
+                  Each one is designed with intention:{" "}
                   <span className="font-bold">
                     to transform a space, to reflect a mood, and to invite
                     presence
@@ -341,16 +350,16 @@ const About = () => {
 
                 <p>
                   Every time a wick is lit, a new experience begins. The
-                  fragrance unfolds like a story, guiding the senses
-                  through warmth, calm, memory, or imagination. Just like
-                  a real journey, it can take you somewhere familiar or
-                  entirely new — even if you never leave the room.
+                  fragrance unfolds like a story, guiding the senses through
+                  warmth, calm, memory, or imagination. Just like a real
+                  journey, it can take you somewhere familiar or entirely new —
+                  even if you never leave the room.
                 </p>
 
                 <p>
                   At Ravangi, we hand-pour each candle with care, using
-                  sustainable materials and a deep respect for
-                  craftsmanship. But more than that,{" "}
+                  sustainable materials and a deep respect for craftsmanship.
+                  But more than that,{" "}
                   <span className="font-bold">
                     we pour intention into every piece
                   </span>{" "}
@@ -358,9 +367,9 @@ const About = () => {
                 </p>
 
                 <p>
-                  If one of our candles finds its way into your life, I
-                  hope it brings light, comfort, and a sense of quiet
-                  wonder — just like it has in mine.
+                  If one of our candles finds its way into your life, I hope it
+                  brings light, comfort, and a sense of quiet wonder — just like
+                  it has in mine.
                 </p>
 
                 <p className="italic">
@@ -386,7 +395,7 @@ const About = () => {
 
       {/* Rest of your sections (Mission, Stats, Safety, Values, Team, CTA) */}
       {/* ... (keep all other sections exactly as they were) ... */}
-       {/* Mission Statement */}
+      {/* Mission Statement */}
       <section className="py-20 bg-[#152336] text-[#f1ead8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -605,7 +614,7 @@ const About = () => {
                 icon: "🌱",
               },
               {
-                title: "Intenionality",
+                title: "intentionality",
                 description:
                   "We believe in creating with purpose — from design to scent to sustainability — every element is chosen with care.",
                 icon: "✨",

@@ -152,9 +152,10 @@ const TermsAndConditions = () => {
               {
                 title: "Product Information",
                 content: [
-                  "We make every effort to display our products as accurately as possible, but cannot guarantee your device will accurately reflect colors.",
-                  "All products are subject to availability. We may limit quantities available for purchase.",
-                  "Prices are subject to change without notice. We are not responsible for typographical errors."
+                  "Slight variations in color, scent strength, and appearance may occur due to the handmade nature of our products. These variations do not affect the performance or quality of the candle.  ",
+                  "Burn times are approximate and may vary depending on the environment in which the candle is used (e.g., airflow, room size, wick trimming).   ",
+                  "All fragrance descriptions and images are for general guidance only.Customers are responsible for following all candle care and safety instructions provided with the product or on our website.",
+                  "It is the responsibility of the customer to review product ingredients before purchase. We are not liable for any allergic reactions or sensitivities."
                 ]
               },
               {
@@ -168,15 +169,16 @@ const TermsAndConditions = () => {
               {
                 title: "Returns & Refunds",
                 content: [
-                  "Unopened, unused products in original packaging may be returned within 30 days for a full refund.",
-                  "Sale items are final sale and cannot be returned or exchanged.",
-                  "To complete your return, we require proof of purchase."
+                  "Due to the handmade and personal nature of our products, we do not accept returns or exchanges unless the item arrives damaged or defective.",
+                  "For exchange or refund, please make video of the product while opening the packaging for damage confirmation.",
+                  "Customers are responsible for following all candle care and safety instructions provided with the product or on our website.",
+                  "item arrives damaged, please contact us within 3 days of delivery with clear video while opening the packaging and your order number."
                 ]
               },
               {
                 title: "Limitation of Liability",
                 content: [
-                  "Ravangi shall not be liable for any special or consequential damages resulting from use of our products.",
+                  "Ravangi shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or misuse of our products.   ",
                   "Our total liability for any claim related to our products shall not exceed the price paid for the product.",
                   "We do not guarantee that our website will be uninterrupted or error-free."
                 ]
@@ -186,6 +188,13 @@ const TermsAndConditions = () => {
                 content: [
                   "These Terms shall be governed by the laws of the State of California without regard to conflict of law principles.",
                   "Any disputes shall be resolved in the state or federal courts located in Los Angeles County, California."
+                ]
+              },
+              {
+                title: "Intellectual Property",
+                content: [
+                  "All product descriptions, images, designs, and branding are the intellectual property of [Your Brand Name] and may not be reproduced or used without permission.",
+                  "Ravangi is a registered trademark. Unauthorized use of our trademarks is prohibited."
                 ]
               }
             ].map((section, index) => (
@@ -244,7 +253,7 @@ const TermsAndConditions = () => {
                   <div className="w-12 h-12 bg-[#f4aa2d] rounded-full flex items-center justify-center">
                     <FiFileText className="text-xl text-[#152336]" />
                   </div>
-                  <p>Last Updated: January 1, 2023</p>
+                  
                 </div>
               </div>
               <div>

@@ -197,16 +197,15 @@ const PrivacyPolicy = () => {
                 <div className="space-y-4">
                   <p><strong>Email:</strong> ravangicandles@gmail.com</p>
                   <p><strong>Phone:</strong> +91 98105 10825</p>
-                  <p><strong>Mail:</strong> 123 Fragrance Lane, Candle City, CC 12345</p>
+                 
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-bold mb-4">Last Updated</h3>
-                <p className="mb-6">This policy was last updated on January 1, 2023.</p>
+                
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full py-3 bg-[#f4aa2d] hover:bg-[#e69c27] text-[#152336] font-medium rounded-lg transition-colors"
+                  className="w-100 cursor-pointer py-3 mt-15 bg-[#f4aa2d] hover:bg-[#e69c27] text-[#152336] font-medium rounded-lg transition-colors"
                 >
                   Download Full Policy (PDF)
                 </motion.button>
