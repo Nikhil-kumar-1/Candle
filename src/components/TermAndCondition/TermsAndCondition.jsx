@@ -154,14 +154,17 @@ const TermsAndConditions = () => {
                 content: [
                   "Slight variations in color, scent strength, and appearance may occur due to the handmade nature of our products. These variations do not affect the performance or quality of the candle.  ",
                   "Burn times are approximate and may vary depending on the environment in which the candle is used (e.g., airflow, room size, wick trimming).   ",
-                  "All fragrance descriptions and images are for general guidance only.Customers are responsible for following all candle care and safety instructions provided with the product or on our website.",
+                  "All fragrance descriptions and images are for general guidance only.",
                   "It is the responsibility of the customer to review product ingredients before purchase. We are not liable for any allergic reactions or sensitivities."
                 ]
               },
               {
-                title: "Order Acceptance",
+                title: "Order and Shipment",
                 content: [
+                  "Orders are typically processed within 3 business days.",
+                  "Delivery times may vary depending on your location, courier delays, or public holidays.",
                   "Your receipt of an order confirmation does not signify our acceptance of your order.",
+                  "Once dispatched, tracking details will be shared (if applicable).",
                   "We reserve the right to refuse any order for any reason, including limitations on quantities available.",
                   "In the event we make a change to your order, we will contact you using the information provided."
                 ]
@@ -171,8 +174,7 @@ const TermsAndConditions = () => {
                 content: [
                   "Due to the handmade and personal nature of our products, we do not accept returns or exchanges unless the item arrives damaged or defective.",
                   "For exchange or refund, please make video of the product while opening the packaging for damage confirmation.",
-                  "Customers are responsible for following all candle care and safety instructions provided with the product or on our website.",
-                  "item arrives damaged, please contact us within 3 days of delivery with clear video while opening the packaging and your order number."
+                  "If your item arrives damaged, please contact us within 3 days of delivery with clear video while opening the packaging and your order number."
                 ]
               },
               {
@@ -184,19 +186,20 @@ const TermsAndConditions = () => {
                 ]
               },
               {
-                title: "Governing Law",
-                content: [
-                  "These Terms shall be governed by the laws of the State of California without regard to conflict of law principles.",
-                  "Any disputes shall be resolved in the state or federal courts located in Los Angeles County, California."
-                ]
-              },
-              {
                 title: "Intellectual Property",
                 content: [
-                  "All product descriptions, images, designs, and branding are the intellectual property of [Your Brand Name] and may not be reproduced or used without permission.",
+                  "All product descriptions, images, designs, and branding are the intellectual property of Ravangi and may not be reproduced or used without permission.",
                   "Ravangi is a registered trademark. Unauthorized use of our trademarks is prohibited."
                 ]
-              }
+              },
+              
+              {
+                title: "Governing Law",
+                content: [
+                  "These Terms shall be governed by the laws of the State of Delhi India without regard to conflict of law principles.",
+                  "These Terms and Conditions shall be governed by and interpreted in accordance with the laws of India. Any disputes arising out of or in connection with these terms shall be subject to the exclusive jurisdiction of the courts in Delhi, India."
+                ]
+              },
             ].map((section, index) => (
               <motion.div 
                 key={index}
