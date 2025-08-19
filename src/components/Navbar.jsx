@@ -4,14 +4,12 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
-import { Link } from "react-router-dom";
-
-const Navbar = () => {
+import { useNavigate } from "react-router-dom";
+const Navbar = ( { user, setUser } ) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [user, setUser] = useState(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     if (!dropdownOpen) return;
 
@@ -34,22 +32,41 @@ const Navbar = () => {
   }, []);
 
   const handleLoginSuccess = (credentialResponse) => {
-    const token = credentialResponse.credential;
-    const decoded = jwtDecode(token);
-    setUser(decoded);
-    localStorage.setItem("user", JSON.stringify(decoded));
-    fetch("http://localhost:4000/api/v1/auth/google", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token }),
+  const token = credentialResponse.credential;
+
+  // Optionally decode just for debugging
+  // const decoded = jwtDecode(token);
+  // console.log("Decoded Google Token:", decoded);
+
+  // Send token to your backend
+  fetch("http://localhost:4000/api/v1/auth/google", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("Backend Response:", data);
+      localStorage.setItem("token", data.token);
+      localStorage.setItem("user", JSON.stringify(data.user));
+      console.log("User logged in:", data.user);
+      setUser(data.user);
+      navigate("/");
+
     })
-      .then((res) => res.json())
-      .then((data) => console.log("Backend Response:", data));
-  };
+    .catch((err) => {
+      console.error("Login error:", err);
+    });
+};
+
+
 
   const handleLogout = () => {
     googleLogout();
     setUser(null);
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/");
   };
 
   const navItems = [
@@ -62,7 +79,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={` top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled ? "bg-[#efe9e1] shadow-md" : "bg-[#F8F4EF]"
       } backdrop-blur-md`}
     >
