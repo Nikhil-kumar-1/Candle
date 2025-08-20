@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiFilter, FiX, FiChevronDown, FiChevronUp, FiStar, FiShoppingCart } from 'react-icons/fi';
-import Cover from '../../assets/Category/CoverPhoto.webp';
 import SilkenGlow from '../../assets/Category/SilkenGlow2.webp';
 import DuskRitual from '../../assets/Category/DuskRitual.webp';
 import EnchantedWood from '../../assets/Category/EnchantedWood2.webp';
@@ -113,7 +112,7 @@ const ProductPage = () => {
   <div
     className="absolute inset-0 bg-cover bg-center opacity-50"
     style={{
-      backgroundImage: `url(${Cover})`,
+      backgroundImage: `url("https://plus.unsplash.com/premium_photo-1701207574420-05ce35eba8d7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Njl8fGRhbmdlciUyMGNhbmRsZSUyMGJsYWNrfGVufDB8fDB8fHww")`,
       backgroundSize: "cover",
       backgroundPosition: "center",
     }}
@@ -138,16 +137,7 @@ const ProductPage = () => {
       >
         Each candle is carefully crafted with premium ingredients for the perfect ambiance
       </motion.p>
-      <motion.button
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="px-8 py-3 cursor-pointer bg-[#f4aa2d] hover:bg-[#e69c27] text-[#152336] font-medium rounded-lg shadow-lg transition-colors duration-300"
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        Shop Now
-      </motion.button>
+      
     </div>
   </div>
 </div>

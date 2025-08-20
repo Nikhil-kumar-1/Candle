@@ -6,7 +6,8 @@ import {
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
-import { FaLeaf, FaHandPaper } from "react-icons/fa";
+import { FaLeaf} from "react-icons/fa";
+import { FaHandHoldingHeart } from "react-icons/fa";
 import { useState } from "react";
 
 const About = () => {
@@ -41,7 +42,7 @@ const About = () => {
   };
 
   const stats = [
-    { icon: <FaHandPaper size={32} />, value: "Handmade", label: "With Love" },
+    { icon: <FaHandHoldingHeart size={32} />, value: "Handmade", label: "With Love" },
     { icon: <FaLeaf size={32} />, value: "Eco-Friendly", label: "Materials" },
     { icon: <FiUsers size={32} />, value: "50k+", label: "Happy Customers" },
     { icon: <FiHeart size={32} />, value: "5-Star", label: "Reviews" },
