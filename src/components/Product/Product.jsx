@@ -27,7 +27,7 @@ const ProductPage = () => {
   },
   { 
     id: 2, 
-    name: 'DUSK RITUAL', 
+    name: 'Majestic Flames', 
     price: 19.99, 
     category: 'Fruity', 
     rating: 4.2, 
@@ -57,7 +57,7 @@ const ProductPage = () => {
   },
   { 
     id: 5, 
-    name: 'TIPSY PETALS', 
+    name: 'MiniGlow', 
     price: 27.99, 
     category: 'Woody', 
     rating: 4.6, 
@@ -75,6 +75,37 @@ const ProductPage = () => {
     details: '100% soy wax, 52hr burn time, phthalate-free fragrance, handmade with premium ingredients',
     image: Classic
   },
+  { 
+    id: 6, 
+    name: 'TEALIGHTS REVERIE', 
+    price: 26.99, 
+    category: 'Floral', 
+    rating: 4.7, 
+    description: 'Elegant bouquet of fresh roses complemented with subtle green undertones for a timeless floral scent.',
+    details: '100% soy wax, 52hr burn time, phthalate-free fragrance, handmade with premium ingredients',
+    image: Classic
+  },
+  { 
+    id: 6, 
+    name: 'DECOR LIGHTS', 
+    price: 26.99, 
+    category: 'Floral', 
+    rating: 4.7, 
+    description: 'Elegant bouquet of fresh roses complemented with subtle green undertones for a timeless floral scent.',
+    details: '100% soy wax, 52hr burn time, phthalate-free fragrance, handmade with premium ingredients',
+    image: Classic
+  },
+  { 
+    id: 6, 
+    name: 'WAX MELTS', 
+    price: 26.99, 
+    category: 'Floral', 
+    rating: 4.7, 
+    description: 'Elegant bouquet of fresh roses complemented with subtle green undertones for a timeless floral scent.',
+    details: '100% soy wax, 52hr burn time, phthalate-free fragrance, handmade with premium ingredients',
+    image: Classic
+  },
+  
 ];
 
 

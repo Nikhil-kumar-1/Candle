@@ -73,7 +73,14 @@ const Collections = () => {
       candles: 6,
       icon: <FiSun className="text-[#f4aa2d] text-xl" />
     },
-    
+    {
+      id: 5,
+      name: "MiniGlow",
+      description: "Premium candles with rare fragrance oils",
+      image: Tipsy,
+      candles: 5,
+      icon: <FiDroplet className="text-[#f4aa2d] text-xl" />
+    },
     {
       id: 6,
       name: "CLASSIC",
