@@ -50,7 +50,7 @@ const Collections = () => {
     },
     {
       id: 2,
-      name: "DUSK RITUAL",
+      name: "Majestic Flames",
       description: "Delicate floral bouquets captured in wax",
       image: Dusk,
       candles: 8,
@@ -73,14 +73,7 @@ const Collections = () => {
       candles: 6,
       icon: <FiSun className="text-[#f4aa2d] text-xl" />
     },
-    {
-      id: 5,
-      name: "TIPSY PETALS",
-      description: "Premium candles with rare fragrance oils",
-      image: Tipsy,
-      candles: 5,
-      icon: <FiDroplet className="text-[#f4aa2d] text-xl" />
-    },
+    
     {
       id: 6,
       name: "CLASSIC",
