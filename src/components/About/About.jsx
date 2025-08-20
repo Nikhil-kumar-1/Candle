@@ -614,7 +614,7 @@ const About = () => {
                 icon: "🌱",
               },
               {
-                title: "intentionality",
+                title: "Intentionality",
                 description:
                   "We believe in creating with purpose — from design to scent to sustainability — every element is chosen with care.",
                 icon: "✨",

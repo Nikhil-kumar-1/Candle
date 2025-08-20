@@ -200,8 +200,8 @@ const ContactUs = () => {
                 <h3 className="text-lg font-bold text-[#f1ead8] mb-4">Follow Us</h3>
                 <div className="flex space-x-4">
                   {[
-                    { icon: <FiInstagram size={24} />, name: "Instagram" },
-                    { icon: <FiFacebook size={24} />, name: "Facebook" },
+                    { icon: <FiInstagram size={24} />, name: "Instagram", link:"https://www.instagram.com/ravangicandles/" },
+                    { icon: <FiFacebook size={24} />, name: "Facebook", link:"https://www.facebook.com/profile.php?id=61578351792220&notif_id=1754609099775378&notif_t=page_user_activity&ref=notif#" },
                     { icon: <FiTwitter size={24} />, name: "Twitter" }
                   ].map((social, index) => (
                     <motion.a

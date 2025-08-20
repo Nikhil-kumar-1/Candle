@@ -175,7 +175,7 @@ export default function Footer() {
               <FaTwitter />
             </motion.a>
             <motion.a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=61578351792220&notif_id=1754609099775378&notif_t=page_user_activity&ref=notif#"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
@@ -195,7 +195,7 @@ export default function Footer() {
               <FaBehance />
             </motion.a>
             <motion.a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ravangicandles/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
