@@ -2,6 +2,8 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
 
+const API_URL = import.meta.env.VITE_API_URL;
+
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState({ items: [] });
   const token = localStorage.getItem("token");
@@ -9,7 +11,7 @@ export const CartProvider = ({ children }) => {
   // Fetch cart from backend when logged in
   useEffect(() => {
     if (token) {
-      fetch("http://localhost:4000/api/v1/cart", {
+      fetch(`${API_URL}/cart`, {
         headers: { Authorization: `Bearer ${token}` },
       })
         .then((res) => res.json())
@@ -20,7 +22,7 @@ export const CartProvider = ({ children }) => {
 
   // Add product to cart
   const addToCart = async (productId, quantity = 1) => {
-    const res = await fetch("http://localhost:4000/api/v1/cart/add", {
+    const res = await fetch(`${API_URL}/cart/add`,  {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -34,7 +36,7 @@ export const CartProvider = ({ children }) => {
 
   // Update item quantity
   const updateCartItem = async (productId, quantity) => {
-    const res = await fetch("http://localhost:4000/api/v1/cart/update", {
+    const res = await fetch(`${API_URL}/cart/update`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -48,7 +50,7 @@ export const CartProvider = ({ children }) => {
 
   // Remove item from cart
   const removeFromCart = async (productId) => {
-    const res = await fetch(`http://localhost:4000/api/v1/cart/remove/${productId}`, {
+    const res = await fetch(`${API_URL}/cart/remove/${productId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });

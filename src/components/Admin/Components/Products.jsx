@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from "react";
-
+const API_URL = import.meta.env.VITE_API_URL;
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  // Start with one empty image input
   const [newProduct, setNewProduct] = useState({
     name: "",
     description: "",
     price: 0,
-    images: [""], // one empty string to render one file input
+    images: [null],
     category: "",
     stock: 0,
     brand: "",
     isFeatured: false,
   });
 
-  const API_URL = "http://localhost:4000/api/v1";
 
   // Fetch products
   const fetchProducts = async () => {
@@ -24,7 +22,7 @@ const Products = () => {
     try {
       const res = await fetch(`${API_URL}/get-all-products`);
       const data = await res.json();
-      setProducts(data.products || []);
+      setProducts(data);
     } catch (error) {
       console.error("Error fetching products:", error);
     } finally {
@@ -36,37 +34,18 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  // Helper: convert File to base64
-  const toBase64 = (file) =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (err) => reject(err);
-    });
-
-  // Handle input changes
-  const handleInputChange = async (e) => {
+  // Handle input change
+  const handleInputChange = (e) => {
     const { name, type, value, checked, files } = e.target;
 
     if (type === "file") {
       const index = parseInt(name.split("-")[1], 10);
       const file = files[0];
-
       if (file) {
-        const base64 = await toBase64(file);
         const newImages = [...newProduct.images];
-        newImages[index] = base64;
+        newImages[index] = file;
         setNewProduct((prev) => ({ ...prev, images: newImages }));
-
-        console.log(`Image at index ${index} updated:`, base64);
       }
-    } else if (name.startsWith("images")) {
-      // fallback (not used here)
-      const index = parseInt(name.split("-")[1], 10);
-      const newImages = [...newProduct.images];
-      newImages[index] = value;
-      setNewProduct((prev) => ({ ...prev, images: newImages }));
     } else if (type === "checkbox") {
       setNewProduct((prev) => ({ ...prev, [name]: checked }));
     } else if (type === "number") {
@@ -76,12 +55,15 @@ const Products = () => {
     }
   };
 
-  // Add another image input
+  // Add an empty image input
   const addImageInput = () => {
-    setNewProduct((prev) => ({ ...prev, images: [...prev.images, ""] }));
+    setNewProduct((prev) => ({
+      ...prev,
+      images: [...prev.images, null],
+    }));
   };
 
-  // Submit new product
+  // Submit product
   const addProduct = async (e) => {
     e.preventDefault();
 
@@ -90,17 +72,31 @@ const Products = () => {
       return;
     }
 
-    console.log("Submitting product:", newProduct);
+    const formData = new FormData();
+
+    formData.append("name", newProduct.name);
+    formData.append("description", newProduct.description);
+    formData.append("price", newProduct.price);
+    formData.append("category", newProduct.category);
+    formData.append("stock", newProduct.stock);
+    formData.append("brand", newProduct.brand);
+    formData.append("isFeatured", newProduct.isFeatured);
+
+    newProduct.images.forEach((file) => {
+      if (file) {
+        formData.append("images", file); // must match backend field name
+      }
+    });
 
     try {
       const res = await fetch(`${API_URL}/add-product`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify(newProduct),
+        body: formData,
       });
+
       const data = await res.json();
 
       if (res.ok) {
@@ -109,7 +105,7 @@ const Products = () => {
           name: "",
           description: "",
           price: 0,
-          images: [""],
+          images: [null],
           category: "",
           stock: 0,
           brand: "",
@@ -210,14 +206,13 @@ const Products = () => {
               />
               {img && (
                 <img
-                  src={img}
+                  src={URL.createObjectURL(img)}
                   alt={`Preview ${i}`}
                   className="w-20 h-20 object-cover mt-1 rounded"
                 />
               )}
             </div>
           ))}
-
           <button
             type="button"
             onClick={addImageInput}
@@ -246,7 +241,7 @@ const Products = () => {
         </button>
       </form>
 
-      {/* Display Products */}
+      {/* Product List */}
       {loading ? (
         <p>Loading products...</p>
       ) : (

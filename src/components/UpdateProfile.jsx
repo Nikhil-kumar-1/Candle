@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { FiUser, FiMail, FiPhone, FiMapPin, FiSave } from "react-icons/fi";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function UpdateProfile() {
   const [user, setUser] = useState(null);
   const [updateData, setUpdateData] = useState({
@@ -51,7 +51,7 @@ export default function UpdateProfile() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch("http://localhost:4000/api/v1/profile", {
+    fetch(`${API_URL}/profile`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

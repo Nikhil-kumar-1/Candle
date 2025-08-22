@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL
 const Navbar = ( { user, setUser } ) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -39,7 +40,7 @@ const Navbar = ( { user, setUser } ) => {
   // console.log("Decoded Google Token:", decoded);
 
   // Send token to your backend
-  fetch("http://localhost:4000/api/v1/auth/google", {
+  fetch(`${API_URL}/auth/google`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ token }),
@@ -153,23 +154,22 @@ const Navbar = ( { user, setUser } ) => {
                       <p className="text-sm text-gray-500">{user.email}</p>
                     </div>
                   </div>
-
-                  {/* Action Buttons */}
                   <div className="flex flex-col p-2">
                     <Link to ="/update-profile" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
-                      
-                    
                       Update Profile
                     </Link>
                     <button
-                      onClick={() => alert("My Orders Clicked")}
-                      className="w-full text-left px-4 py-2 rounded hover:bg-gray-100"
+                      onClick={() => navigate("/my-cart")}
+                      className="w-full text-left px-4 py-2 rounded hover:bg-gray-100 cursor-pointer"
                     >
-                      My Orders
+                      My Cart
                     </button>
+                    <Link to="/my-orders" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
+                      My Orders
+                    </Link>
                     <button
                       onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 text-red-500 rounded hover:bg-gray-100"
+                      className="w-full text-left px-4 py-2 text-red-500 rounded hover:bg-gray-100 cursor-pointer"
                     >
                       Logout
                     </button>

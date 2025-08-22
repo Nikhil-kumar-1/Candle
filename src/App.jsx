@@ -21,6 +21,9 @@ import AdminNavbar from "./components/Admin/AdminNavbar";
 import Admin from "./components/Admin/Admin";
 import Users from "./components/Admin/Components/Users";
 import Products from "./components/Admin/Components/Products";
+import Cart from "./components/Cart/Cart";
+import Orders from "./components/Orders/Orders";
+import OrdersAdmin from "./components/Admin/Components/Orders";
 
 // Protected route component
 const AdminRoute = ({ user, children }) => {
@@ -65,6 +68,8 @@ const App = () => {
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/terms-&-conditions" element={<TermsAndConditions />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/my-cart" element={<Cart />} />
+            <Route path="/my-orders" element={<Orders />} />
 
             {/* ✅ Admin-only route */}
             <Route
@@ -88,6 +93,14 @@ const App = () => {
               element={
                 <AdminRoute user={user}>
                   <Products />
+                </AdminRoute>
+              }
+            />
+            <Route
+              path="/admin/orders"
+              element={
+                <AdminRoute user={user}>
+                  <OrdersAdmin />
                 </AdminRoute>
               }
             />
