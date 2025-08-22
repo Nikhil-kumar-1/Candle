@@ -9,135 +9,167 @@ const container = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const item = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 }
+  show: { opacity: 1, y: 0 },
 };
 
 export default function Footer() {
   return (
     <footer className="bg-white text-[#152336] border-t border-[#152336]/10">
-      <motion.div 
+      <motion.div
         className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10"
         initial="hidden"
         whileInView="show"
         viewport={{ once: true }}
         variants={container}
       >
-        
         {/* Brand Info */}
         <motion.div variants={item}>
           <h2 className="text-2xl font-serif mb-3 font-bold">RAVANGI</h2>
           <p className="text-sm text-[#152336]/80 mb-4">
-            At Ravangi Candle, we believe in spreading warmth, light, and serenity through every candle we craft.
+            At Ravangi Candle, we believe in spreading warmth, light, and
+            serenity through every candle we craft.
           </p>
           <p className="text-sm text-[#152336]/80 mb-4">
-            Whether you have questions or just want to say hello, our team is here to assist you.
+            Whether you have questions or just want to say hello, our team is
+            here to assist you.
           </p>
           <div className="space-y-1 text-sm text-[#152336]/80">
             <p>1234 Heaven Street, USA</p>
             <p>ravangicandles@gmail.com</p>
-            <p>+91 98105 10825</p>
+            <p>+91 9911755588</p>
           </div>
         </motion.div>
 
         {/* Info Links */}
         <motion.div variants={item}>
-          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">INFO</h3>
+          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">
+            INFO
+          </h3>
           <ul className="space-y-3">
-            
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Home
               </Link>
             </motion.li>
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/about" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/about"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 About
               </Link>
             </motion.li>
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/product" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/product"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Products
               </Link>
             </motion.li>
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/collections" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/collections"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Collections
               </Link>
             </motion.li>
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/contact" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/contact"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Contact Us
               </Link>
             </motion.li>
-            
-            
           </ul>
         </motion.div>
 
         {/* Services Links */}
         <motion.div variants={item}>
-          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">LINKS</h3>
+          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">
+            LINKS
+          </h3>
           <ul className="space-y-3">
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/sitemap" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/sitemap"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Sitemap
               </Link>
             </motion.li>
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/privacy-policy" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/privacy-policy"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Privacy Policy
               </Link>
             </motion.li>
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/faq" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/faq"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 F.A.Q
               </Link>
             </motion.li>
-            
-            <motion.li 
+
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/terms-&-conditions" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/terms-&-conditions"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Terms & Conditions
               </Link>
             </motion.li>
-            <motion.li 
+            <motion.li
               whileHover={{ x: 5 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link to="/contact" className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors">
+              <Link
+                to="/contact"
+                className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
+              >
                 Contact Us
               </Link>
             </motion.li>
@@ -146,14 +178,13 @@ export default function Footer() {
 
         {/* Newsletter */}
         <motion.div variants={item}>
-          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">NEWSLETTER</h3>
+          <h3 className="text-sm font-semibold mb-3 border-b border-[#152336]/20 pb-2">
+            NEWSLETTER
+          </h3>
           <p className="text-sm text-[#152336]/80 mb-4">
             Join 40,000+ subscribers and get a new discount coupon
           </p>
-          <motion.div 
-            className="flex mb-6"
-            whileHover={{ scale: 1.02 }}
-          >
+          <motion.div className="flex mb-6" whileHover={{ scale: 1.02 }}>
             <input
               type="email"
               placeholder="Your email address..."
@@ -175,7 +206,7 @@ export default function Footer() {
               <FaTwitter />
             </motion.a>
             <motion.a
-              href="https://facebook.com"
+              href="https://www.facebook.com/profile.php?id=61578351792220&notif_id=1754609099775378&notif_t=page_user_activity&ref=notif#"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
@@ -195,7 +226,7 @@ export default function Footer() {
               <FaBehance />
             </motion.a>
             <motion.a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ravangicandles/"
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 border border-[#152336]/20 rounded-full text-[#152336]/80 hover:bg-[#152336] hover:text-[#f1ead8] transition-colors"
@@ -209,14 +240,15 @@ export default function Footer() {
       </motion.div>
 
       {/* Bottom Bar */}
-      <motion.div 
+      <motion.div
         className="border-t border-[#152336]/10 py-4 text-center text-sm text-[#152336]/80"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ delay: 0.2 }}
       >
-        © {new Date().getFullYear()} RAVANGI | Designed by Adonomics Technologies
+        © {new Date().getFullYear()} RAVANGI | Designed by Adonomics
+        Technologies
       </motion.div>
     </footer>
   );

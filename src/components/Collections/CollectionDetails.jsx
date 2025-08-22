@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiArrowLeft,FiArrowRight, FiShoppingCart, FiHeart, FiStar } from "react-icons/fi";
+import { FiArrowLeft, FiArrowRight, FiShoppingCart, FiHeart, FiStar } from "react-icons/fi";
 import { Link, useParams } from "react-router-dom";
 
 const CollectionDetail = () => {
@@ -25,12 +25,12 @@ const CollectionDetail = () => {
     }
   };
 
-  // Mock data - in a real app you would fetch this based on the id
+  // Complete collections data
   const collections = {
     1: {
-      name: "Heritage Collection",
+      name: "SILKEN GLOW",
       description: "Traditional fragrances inspired by ancient Indian attars, crafted using time-honored techniques passed down through generations of perfumers.",
-      mainImage: "https://images.unsplash.com/photo-1604514628550-37477afdf4e3?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      mainImage: "https://plus.unsplash.com/premium_photo-1743592742764-ad126f9c21db?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2lsaWNvbiUyMGdsb3clMjBjYW5kbGV8ZW58MHx8MHx8fDA%3D",
       coverImage: "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
       candles: [
         {
@@ -68,7 +68,180 @@ const CollectionDetail = () => {
         }
       ]
     },
-    // Other collections would be defined here...
+    2: {
+      name: "DUSK RITUAL",
+      description: "Delicate floral bouquets captured in wax, perfect for evening relaxation and meditation.",
+      mainImage: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1595425970377-2f8ded7c7b19?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 201,
+          name: "Lavender Dream",
+          description: "Calming lavender with hints of chamomile",
+          price: 1899,
+          image: "https://images.unsplash.com/photo-1595425972660-5d59a3d5ad9f?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "45 hours",
+          size: "6oz",
+          rating: 4.6,
+          notes: ["Lavender", "Chamomile", "Vanilla"]
+        },
+        {
+          id: 202,
+          name: "Jasmine Night",
+          description: "Intoxicating jasmine with night-blooming flowers",
+          price: 2199,
+          image: "https://images.unsplash.com/photo-1595425972660-5d59a3d5ad9f?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "50 hours",
+          size: "8oz",
+          rating: 4.8,
+          notes: ["Jasmine", "Gardenia", "Musk"]
+        }
+      ]
+    },
+    3: {
+      name: "ENCHANTED WOODS",
+      description: "Warm, earthy fragrances with a spicy kick that transport you to mystical forests.",
+      mainImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 301,
+          name: "Cedar & Sage",
+          description: "Earthy cedarwood with cleansing sage",
+          price: 2299,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "55 hours",
+          size: "8oz",
+          rating: 4.7,
+          notes: ["Cedarwood", "Sage", "Patchouli"]
+        },
+        {
+          id: 302,
+          name: "Pine Forest",
+          description: "Fresh pine with hints of balsam and citrus",
+          price: 1999,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "50 hours",
+          size: "6oz",
+          rating: 4.5,
+          notes: ["Pine", "Balsam", "Bergamot"]
+        }
+      ]
+    },
+    4: {
+      name: "MIST & BLOOM",
+      description: "Limited edition scents for each season that capture the essence of nature's transitions.",
+      mainImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 401,
+          name: "Spring Dew",
+          description: "Fresh rain on blooming flowers",
+          price: 2399,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "52 hours",
+          size: "8oz",
+          rating: 4.8,
+          notes: ["Rain", "Lily", "Green Notes"]
+        }
+      ]
+    },
+    5: {
+      name: "TIPSY PETALS",
+      description: "Premium candles with rare fragrance oils that create an intoxicating floral experience.",
+      mainImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 501,
+          name: "Rose Champagne",
+          description: "Elegant rose with bubbly champagne notes",
+          price: 2799,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "60 hours",
+          size: "8oz",
+          rating: 4.9,
+          notes: ["Rose", "Champagne", "Pear"]
+        }
+      ]
+    },
+    6: {
+      name: "CLASSIC",
+      description: "Aromatherapy candles for relaxation and focus with timeless fragrance profiles.",
+      mainImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 601,
+          name: "Vanilla Comfort",
+          description: "Warm vanilla with creamy undertones",
+          price: 1799,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "45 hours",
+          size: "6oz",
+          rating: 4.7,
+          notes: ["Vanilla", "Cream", "Tonka Bean"]
+        }
+      ]
+    },
+    7: {
+      name: "TEALIGHTS REVERIE",
+      description: "Miniature candles creating intimate moments and perfect for small spaces.",
+      mainImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 701,
+          name: "Mini Lavender",
+          description: "Calming lavender in a small tealight",
+          price: 499,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "6 hours",
+          size: "1.5oz",
+          rating: 4.5,
+          notes: ["Lavender", "Herbal Notes"]
+        }
+      ]
+    },
+    8: {
+      name: "DECOR LIGHTS",
+      description: "Elegant candles that illuminate and decorate your space with style.",
+      mainImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 801,
+          name: "Geometric Lantern",
+          description: "Modern geometric design with sandalwood scent",
+          price: 3299,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "40 hours",
+          size: "12oz",
+          rating: 4.8,
+          notes: ["Sandalwood", "Amber", "Musk"]
+        }
+      ]
+    },
+    9: {
+      name: "WAX MELTS",
+      description: "Scented wax for melt warmers and diffusers that fill your space with fragrance.",
+      mainImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      coverImage: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+      candles: [
+        {
+          id: 901,
+          name: "Vanilla Bloom Melts",
+          description: "Vanilla and floral wax melts for warmers",
+          price: 899,
+          image: "https://images.unsplash.com/photo-1603712610494-73e1524f7015?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80",
+          burnTime: "20 hours",
+          size: "6 cubes",
+          rating: 4.6,
+          notes: ["Vanilla", "Jasmine", "Ylang-Ylang"]
+        }
+      ]
+    }
   };
 
   const collection = collections[id] || collections[1]; // Fallback to first collection if invalid id
@@ -98,7 +271,7 @@ const CollectionDetail = () => {
           <img 
             src={collection.mainImage} 
             alt={collection.name}
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-100"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#fafaf1]"></div>
         </div>
@@ -128,7 +301,7 @@ const CollectionDetail = () => {
                 {collection.description}
               </motion.p>
               <motion.p variants={slideUp} className="text-lg text-[#152336] font-medium">
-                {collection.candles.length} unique fragrances
+                {collection.candles.length} unique {collection.candles.length === 1 ? 'fragrance' : 'fragrances'}
               </motion.p>
             </div>
           </motion.div>
@@ -145,7 +318,7 @@ const CollectionDetail = () => {
             viewport={{ once: true }}
             className="text-2xl md:text-3xl font-bold text-[#152336] mb-8"
           >
-            Candles in this Collection
+            Products in this Collection
           </motion.h2>
 
           <motion.div
@@ -237,7 +410,7 @@ const CollectionDetail = () => {
               className="relative rounded-xl overflow-hidden h-64 md:h-80"
             >
               <img 
-                src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80" 
+                src={collection.coverImage} 
                 alt="Crafting process"
                 className="w-full h-full object-cover"
               />
@@ -250,13 +423,13 @@ const CollectionDetail = () => {
               viewport={{ once: true }}
             >
               <p className="text-[#152336]/90 mb-4">
-                The Heritage Collection was born from our founder's journey through the spice markets of Old Delhi, where she discovered ancient fragrance recipes passed down through generations.
+                Our {collection.name} collection was carefully crafted to bring unique fragrances into your home. Each product is made with premium ingredients and attention to detail.
               </p>
               <p className="text-[#152336]/90 mb-4">
-                Each candle in this collection is crafted using traditional techniques, with wax blends that contain natural ingredients like ghee and honey, just as they did centuries ago.
+                We source the finest materials from sustainable suppliers to ensure that every candle not only smells wonderful but is also environmentally conscious.
               </p>
               <p className="text-[#152336]/90">
-                We work directly with attar makers in Kannauj, India's perfume capital, to source the purest essential oils for these special creations.
+                The collection represents hours of testing and refinement to create the perfect scent experience for your space.
               </p>
             </motion.div>
           </div>
@@ -277,29 +450,33 @@ const CollectionDetail = () => {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Example related collection - in a real app you would map through actual related collections */}
-            <motion.div
-              whileHover={{ y: -5 }}
-              className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
-            >
-              <div className="h-48 mb-4 rounded-lg overflow-hidden">
-                <img 
-                  src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-4.1.0&auto=format&fit=crop&w=800&q=80" 
-                  alt="Floral Essence"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-[#152336] mb-2">Floral Essence</h3>
-              <p className="text-[#152336]/90 mb-4">Delicate floral bouquets captured in wax</p>
-              <Link 
-                to="/collections/2" 
-                className="inline-flex items-center text-[#f4aa2d] hover:text-[#e69900]"
-              >
-                View Collection <FiArrowRight className="ml-2" />
-              </Link>
-            </motion.div>
-            
-            {/* Add more related collections... */}
+            {Object.keys(collections)
+              .filter(key => key !== id)
+              .slice(0, 3)
+              .map(key => (
+                <motion.div
+                  key={key}
+                  whileHover={{ y: -5 }}
+                  className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="h-48 mb-4 rounded-lg overflow-hidden">
+                    <img 
+                      src={collections[key].coverImage} 
+                      alt={collections[key].name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-[#152336] mb-2">{collections[key].name}</h3>
+                  <p className="text-[#152336]/90 mb-4">{collections[key].description.substring(0, 60)}...</p>
+                  <Link 
+                    to={`/collections/${key}`} 
+                    className="inline-flex items-center text-[#f4aa2d] hover:text-[#e69900]"
+                  >
+                    View Collection <FiArrowRight className="ml-2" />
+                  </Link>
+                </motion.div>
+              ))
+            }
           </div>
         </div>
       </section>
