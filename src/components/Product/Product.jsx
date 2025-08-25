@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { FiShoppingCart } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -229,6 +230,7 @@ function Product() {
               key={productId}
               className="border border-gray-300 rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow flex flex-col"
             >
+            <Link to={`/product/${productId}`} className="flex-1">
               <img
                 src={product.images?.[0] || product.image}
                 alt={product.name}
@@ -247,7 +249,7 @@ function Product() {
               <p>
                 <strong>Rating:</strong> {product.ratings || product.rating || 0}
               </p>
-
+              </Link>
               <div className="mt-auto flex items-center justify-between gap-2">
                 {/* Add to Cart */}
                 <button
