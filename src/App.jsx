@@ -25,6 +25,7 @@ import Cart from "./components/Cart/Cart";
 import Orders from "./components/Orders/Orders";
 import OrdersAdmin from "./components/Admin/Components/Orders";
 import ProductCard from "./components/Product/ProductCard";
+import ProductsByCategory from "./components/Category/ProductsByCategory";
 
 // Protected route component
 const AdminRoute = ({ user, children }) => {
@@ -72,6 +73,7 @@ const App = () => {
             <Route path="/my-cart" element={<Cart />} />
             <Route path="/my-orders" element={<Orders />} />
             <Route path="/product/:productId" element={<ProductCard />} />
+            <Route path="/category/:slug" element={<ProductsByCategory />} />
 
             {/* ✅ Admin-only route */}
             <Route
