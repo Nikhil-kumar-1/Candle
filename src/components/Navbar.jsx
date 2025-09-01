@@ -1,16 +1,24 @@
 import { motion } from "framer-motion";
-import { FiMenu, FiX, FiShoppingCart, FiSearch } from "react-icons/fi";
+import { FiMenu, FiX, FiShoppingCart, FiSearch, FiMessageCircle } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GoogleLogin, googleLogout } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import { useNavigate } from "react-router-dom";
-const API_URL = import.meta.env.VITE_API_URL
+
+const API_URL = import.meta.env.VITE_API_URL;
+
 const Navbar = ( { user, setUser } ) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
+  
+  // WhatsApp number - replace with your actual number
+  const whatsappNumber = "919876543210";
+  const whatsappMessage = "Hello! I'm interested in your products.";
+
   useEffect(() => {
     if (!dropdownOpen) return;
 
@@ -33,34 +41,27 @@ const Navbar = ( { user, setUser } ) => {
   }, []);
 
   const handleLoginSuccess = (credentialResponse) => {
-  const token = credentialResponse.credential;
+    const token = credentialResponse.credential;
 
-  // Optionally decode just for debugging
-  // const decoded = jwtDecode(token);
-  // console.log("Decoded Google Token:", decoded);
-
-  // Send token to your backend
-  fetch(`${API_URL}/auth/google`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ token }),
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("Backend Response:", data);
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("user", JSON.stringify(data.user));
-      console.log("User logged in:", data.user);
-      setUser(data.user);
-      navigate("/");
-
+    // Send token to your backend
+    fetch(`${API_URL}/auth/google`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token }),
     })
-    .catch((err) => {
-      console.error("Login error:", err);
-    });
-};
-
-
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("Backend Response:", data);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        console.log("User logged in:", data.user);
+        setUser(data.user);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.error("Login error:", err);
+      });
+  };
 
   const handleLogout = () => {
     googleLogout();
@@ -68,6 +69,11 @@ const Navbar = ( { user, setUser } ) => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/");
+  };
+
+  const handleWhatsAppClick = () => {
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+    window.open(url, '_blank');
   };
 
   const navItems = [
@@ -124,65 +130,78 @@ const Navbar = ( { user, setUser } ) => {
           </div>
 
           {/* Icons + Google Login */}
-          {user ? (
-            <div className="relative profile-dropdown">
-              {/* Profile Picture as Button */}
-              <img
-                src={user.picture}
-                alt="Profile"
-                className="w-8 h-8 rounded-full cursor-pointer border border-gray-300 z-50"
-                onClick={() => setDropdownOpen((prev) => !prev)}
-              />
+          <div className="flex items-center space-x-4">
+            {/* WhatsApp Icon */}
+            <motion.button
+              onClick={handleWhatsAppClick}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="hidden md:flex items-center justify-center p-2 rounded-full bg-green-500 text-white shadow-md hover:bg-green-600 transition-colors"
+              title="Contact us on WhatsApp"
+            >
+              <FaWhatsapp className="h-5 w-5" />
+            </motion.button>
 
-              {/* Dropdown Card */}
-              {dropdownOpen && (
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute right-0 m-0 w-64 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
-                >
-                  {/* User Info */}
-                  <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
-                    <img
-                      src={user.picture}
-                      alt="Profile"
-                      className="w-12 h-12 rounded-full"
-                    />
-                    <div>
-                      <p className="font-semibold text-gray-800">{user.name}</p>
-                      <p className="text-sm text-gray-500">{user.email}</p>
+            {user ? (
+              <div className="relative profile-dropdown">
+                {/* Profile Picture as Button */}
+                <img
+                  src={user.picture}
+                  alt="Profile"
+                  className="w-8 h-8 rounded-full cursor-pointer border border-gray-300 z-50"
+                  onClick={() => setDropdownOpen((prev) => !prev)}
+                />
+
+                {/* Dropdown Card */}
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute right-0 m-0 w-64 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
+                  >
+                    {/* User Info */}
+                    <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
+                      <img
+                        src={user.picture}
+                        alt="Profile"
+                        className="w-12 h-12 rounded-full"
+                      />
+                      <div>
+                        <p className="font-semibold text-gray-800">{user.name}</p>
+                        <p className="text-sm text-gray-500">{user.email}</p>
+                      </div>
                     </div>
-                  </div>
-                  <div className="flex flex-col p-2">
-                    <Link to ="/update-profile" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
-                      Update Profile
-                    </Link>
-                    <button
-                      onClick={() => navigate("/my-cart")}
-                      className="w-full text-left px-4 py-2 rounded hover:bg-gray-100 cursor-pointer"
-                    >
-                      My Cart
-                    </button>
-                    <Link to="/my-orders" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
-                      My Orders
-                    </Link>
-                    <button
-                      onClick={handleLogout}
-                      className="w-full text-left px-4 py-2 text-red-500 rounded hover:bg-gray-100 cursor-pointer"
-                    >
-                      Logout
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </div>
-          ) : (
-            <GoogleLogin
-              onSuccess={handleLoginSuccess}
-              onError={() => console.log("Login Failed")}
-            />
-          )}
+                    <div className="flex flex-col p-2">
+                      <Link to="/update-profile" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
+                        Update Profile
+                      </Link>
+                      <button
+                        onClick={() => navigate("/my-cart")}
+                        className="w-full text-left px-4 py-2 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        My Cart
+                      </button>
+                      <Link to="/my-orders" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
+                        My Orders
+                      </Link>
+                      <button
+                        onClick={handleLogout}
+                        className="w-full text-left px-4 py-2 text-red-500 rounded hover:bg-gray-100 cursor-pointer"
+                      >
+                        Logout
+                      </button>
+                    </div>
+                  </motion.div>
+                )}
+              </div>
+            ) : (
+              <GoogleLogin
+                onSuccess={handleLoginSuccess}
+                onError={() => console.log("Login Failed")}
+              />
+            )}
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
@@ -225,6 +244,20 @@ const Navbar = ( { user, setUser } ) => {
                 </Link>
               </motion.div>
             ))}
+            
+            {/* WhatsApp option in mobile menu */}
+            <motion.div
+              className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded"
+              style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
+              whileHover={{ x: 5 }}
+              onClick={handleWhatsAppClick}
+            >
+              <div className="flex items-center">
+                <FaWhatsapp className="mr-2 text-green-400" />
+                Contact via WhatsApp
+              </div>
+            </motion.div>
+            
             <div className="flex space-x-4 px-3 py-2">
               <motion.button 
                 whileHover={{ scale: 1.1 }} 

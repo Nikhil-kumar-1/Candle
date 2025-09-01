@@ -31,7 +31,7 @@ const CandleRangeSection = () => {
               
               <div className="mt-auto">
                 <Link 
-                  to="/shop" 
+                  to="/product" 
                   className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2C1E16] hover:bg-[#3E2D22] transition-all duration-300 group"
                 >
                   Shop Now
@@ -66,7 +66,7 @@ const CandleRangeSection = () => {
               
               <div className="mt-auto">
                 <Link 
-                  to="/decor" 
+                  to="/product" 
                   className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2C1E16] hover:bg-[#3E2D22] transition-all duration-300 group"
                 >
                   Shop Now
