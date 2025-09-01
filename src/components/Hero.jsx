@@ -7,6 +7,7 @@ import MistBloom from "../assets/Category/MistBloom.webp";
 import TipsyPetal from "../assets/Category/TipsyPetal2.webp";
 import Classic from "../assets/Category/Classic.webp";
 import Cover from "../assets/Category/heart.webp";
+import { Link } from "react-router-dom";
 
 const categories = [
   {
@@ -102,6 +103,7 @@ export default function HeroSection() {
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.3 }}
             >
+              <Link to={`/category/${cat.name.replace(/\s+/g, "-").toLowerCase()}`} >
               {/* Box Overlay */}
               <div
                 className="absolute inset-0 border border-[#f1ead8]/30 transition-all duration-300"
@@ -145,8 +147,9 @@ export default function HeroSection() {
                     boxShadow: "0 0 40px 15px rgba(244, 170, 45, 0.2)",
                     transition: "all 0.5s ease",
                   }}
-                />
+                  />
               )}
+          </Link>
             </motion.div>
           ))}
         </div>

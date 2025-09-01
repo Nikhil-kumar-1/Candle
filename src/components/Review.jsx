@@ -6,19 +6,19 @@ import "slick-carousel/slick/slick-theme.css";
 
 const reviews = [
   {
-    name: "ROBERT FOX",
+    name: "Aditya Kumar",
     role: "Customer",
     image: "https://randomuser.me/api/portraits/men/32.jpg",
     text: "The Signature Scents candles are my go-to for gifting. The unique fragrances and stylish design always impress and delight my friends and family. They truly stand out from the rest!",
   },
   {
-    name: "ANN SMITH",
+    name: "Tina Anand",
     role: "Customer",
     image: "https://randomuser.me/api/portraits/women/44.jpg",
     text: "I love how the Signature Scents collection offers such a wide range of luxurious fragrances. Each candle creates a distinct and memorable ambiance that makes my home feel extra special.",
   },
   {
-    name: "JAMES WILSON",
+    name: "Jimmy Patel",
     role: "Customer",
     image: "https://randomuser.me/api/portraits/men/65.jpg",
     text: "These candles are just magical! Long-lasting fragrance, eco-friendly, and beautifully designed jars that I can reuse. Highly recommend them!",
