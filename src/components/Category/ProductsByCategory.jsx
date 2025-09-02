@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
+const API_URL = import.meta.env.VITE_API_URL;
 function ProductsByCategory() {
   const { slug } = useParams(); // e.g. "silken-glow"
   const [products, setProducts] = useState([]);
@@ -20,7 +20,7 @@ function ProductsByCategory() {
       try {
         setLoading(true);
         const res = await fetch(
-          `http://localhost:4000/api/v1/products-by-category/${slug}`
+          `${API_URL}/products-by-category/${slug}`
         );
         if (!res.ok) throw new Error("Failed to fetch products");
         const data = await res.json();
