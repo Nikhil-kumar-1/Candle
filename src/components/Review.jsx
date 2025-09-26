@@ -8,19 +8,19 @@ const reviews = [
   {
     name: "Aditya Kumar",
     role: "Customer",
-    image: "https://randomuser.me/api/portraits/men/32.jpg",
+    image: "https://images.unsplash.com/photo-1649433658557-54cf58577c68?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     text: "The Signature Scents candles are my go-to for gifting. The unique fragrances and stylish design always impress and delight my friends and family. They truly stand out from the rest!",
   },
   {
     name: "Tina Anand",
     role: "Customer",
-    image: "https://randomuser.me/api/portraits/women/44.jpg",
+    image: "https://images.unsplash.com/photo-1660067262025-271603ac1283?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     text: "I love how the Signature Scents collection offers such a wide range of luxurious fragrances. Each candle creates a distinct and memorable ambiance that makes my home feel extra special.",
   },
   {
     name: "Jimmy Patel",
     role: "Customer",
-    image: "https://randomuser.me/api/portraits/men/65.jpg",
+    image: "https://images.unsplash.com/photo-1659421614911-e77b65eb368a?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     text: "These candles are just magical! Long-lasting fragrance, eco-friendly, and beautifully designed jars that I can reuse. Highly recommend them!",
   },
 ];
@@ -68,7 +68,7 @@ export default function CustomerReviews() {
                 <img
                   src={review.image}
                   alt={review.name}
-                  className="w-12 h-12 rounded-full border-2 border-white"
+                  className="w-12 h-12 rounded-full border-2 border-white object-cover"
                 />
                 <div>
                   <h4 className="text-white text-sm font-bold">{review.name}</h4>

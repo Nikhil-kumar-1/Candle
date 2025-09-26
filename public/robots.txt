@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /admin
+Disallow: /my-cart
+Disallow: /my-orders
+Disallow: /update-profile
+
+Allow: /
+
+Sitemap: https://www.ravangi.com/sitemap.xml

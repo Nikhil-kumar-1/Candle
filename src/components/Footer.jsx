@@ -121,12 +121,12 @@ export default function Footer() {
               whileHover={{ x: 5 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
-              <Link
-                to="/sitemap"
+              <a
+                href="/sitemap.xml"
                 className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
               >
                 Sitemap
-              </Link>
+              </a>
             </motion.li>
             <motion.li
               whileHover={{ x: 5 }}
