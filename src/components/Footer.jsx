@@ -156,7 +156,7 @@ export default function Footer() {
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
             >
               <Link
-                to="/terms-&-conditions"
+                to="/tnc"
                 className="text-sm text-[#152336]/80 hover:text-[#f4aa2d] transition-colors"
               >
                 Terms & Conditions
