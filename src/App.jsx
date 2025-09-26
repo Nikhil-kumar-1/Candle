@@ -68,7 +68,7 @@ const App = () => {
             <Route path="/collections" element={<Collections />} />
             <Route path="/collections/:id" element={<CollectionDetail />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/terms-&-conditions" element={<TermsAndConditions />} />
+            <Route path="/tnc" element={<TermsAndConditions />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/my-cart" element={<Cart />} />
             <Route path="/my-orders" element={<Orders />} />
