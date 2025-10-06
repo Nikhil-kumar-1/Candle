@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-const API_URL = import.meta.env.VITE_API_URL
+const API_URL = import.meta.env.VITE_API_URL;
 const RAZORPAY_KEY = import.meta.env.VITE_RAZORPAY_KEY_ID;
 
 function Cart() {
@@ -12,10 +12,9 @@ function Cart() {
     street: "",
     city: "",
     state: "",
-    zip: "", // Make sure this matches schema 'zip'
+    zip: "",
   });
   const navigate = useNavigate();
-
   const [isPaying, setIsPaying] = useState(false);
 
   useEffect(() => {
@@ -54,7 +53,6 @@ function Cart() {
       order_id: orderData.id,
       handler: async function (response) {
         try {
-          // Map cart items to match order schema
           const itemsForOrder = cart.items.map((item) => ({
             product: item.product._id,
             name: item.product.name,
@@ -82,7 +80,7 @@ function Cart() {
           const data = await res.json();
           if (!res.ok) throw new Error(data.message);
           alert("✅ Payment successful and order placed!");
-          setCart(null);          
+          setCart(null);
           setShowAddressForm(false);
           navigate("/my-orders");
         } catch (err) {
@@ -94,9 +92,7 @@ function Cart() {
         email: "customer@example.com",
         contact: "9999999999",
       },
-      theme: {
-        color: "#1D4ED8",
-      },
+      theme: { color: "#1D4ED8" },
     };
 
     const razor = new window.Razorpay(options);
@@ -116,7 +112,7 @@ function Cart() {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-        body: JSON.stringify({ amount: totalAmount * 100 }), // amount in paise
+        body: JSON.stringify({ amount: totalAmount * 100 }),
       });
 
       const data = await res.json();
@@ -126,7 +122,6 @@ function Cart() {
       alert("❌ Failed to create Razorpay order: " + err.message);
     }
     setIsPaying(false);
-
   };
 
   useEffect(() => {
@@ -141,7 +136,23 @@ function Cart() {
 
   if (loading) return <div>Loading cart...</div>;
   if (error) return <div className="text-red-500">Error: {error}</div>;
-  if (!cart || cart.items.length === 0) return <div>Your cart is empty.</div>;
+
+  // 🛒 When cart is empty
+  if (!cart || !cart.items || cart.items.length === 0)
+    return (
+      <div className="flex flex-col justify-center items-center h-96 text-center">
+        <h2 className="text-2xl font-semibold mb-3">🛒 Your cart is empty!</h2>
+        <p className="text-gray-600 mb-6">
+          Looks like you haven't added anything yet.
+        </p>
+        <button
+          onClick={() => navigate("/")}
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+        >
+          Go to Shop
+        </button>
+      </div>
+    );
 
   return (
     <div className="p-6 max-w-4xl mx-auto mt-12">
@@ -179,7 +190,9 @@ function Cart() {
       {showAddressForm && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white p-6 rounded-md shadow-md w-full max-w-md">
-            <h2 className="text-xl font-semibold mb-4">Enter Shipping Address</h2>
+            <h2 className="text-xl font-semibold mb-4">
+              Enter Shipping Address
+            </h2>
 
             <input
               type="text"
@@ -202,7 +215,9 @@ function Cart() {
               placeholder="State"
               className="w-full border p-2 mb-2"
               value={address.state}
-              onChange={(e) => setAddress({ ...address, state: e.target.value })}
+              onChange={(e) =>
+                setAddress({ ...address, state: e.target.value })
+              }
             />
             <input
               type="text"
