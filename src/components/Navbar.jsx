@@ -1,70 +1,36 @@
 import { motion } from "framer-motion";
-import { FiMenu, FiX, FiShoppingCart, FiSearch, FiMessageCircle } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { GoogleLogin, googleLogout } from "@react-oauth/google";
-import { jwtDecode } from "jwt-decode";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const API_URL = import.meta.env.VITE_API_URL;
-
-const Navbar = ( { user, setUser } ) => {
+const Navbar = ({ user, setUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
-  
-  // WhatsApp number - replace with your actual number
+
   const whatsappNumber = "919876543210";
   const whatsappMessage = "Hello! I'm interested in your products.";
 
   useEffect(() => {
     if (!dropdownOpen) return;
-
     const handleClickOutside = (e) => {
       if (!e.target.closest(".profile-dropdown")) {
         setDropdownOpen(false);
       }
     };
-
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
   }, [dropdownOpen]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLoginSuccess = (credentialResponse) => {
-    const token = credentialResponse.credential;
-
-    // Send token to your backend
-    fetch(`${API_URL}/auth/google`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ token }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("Backend Response:", data);
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("user", JSON.stringify(data.user));
-        console.log("User logged in:", data.user);
-        setUser(data.user);
-        navigate("/");
-      })
-      .catch((err) => {
-        console.error("Login error:", err);
-      });
-  };
-
   const handleLogout = () => {
-    googleLogout();
     setUser(null);
     localStorage.removeItem("token");
     localStorage.removeItem("user");
@@ -72,8 +38,10 @@ const Navbar = ( { user, setUser } ) => {
   };
 
   const handleWhatsAppClick = () => {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
-    window.open(url, '_blank');
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      whatsappMessage
+    )}`;
+    window.open(url, "_blank");
   };
 
   const navItems = [
@@ -93,50 +61,32 @@ const Navbar = ( { user, setUser } ) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-2"
-          >
+          <motion.div whileHover={{ scale: 1.05 }} className="flex items-center">
             <Link to="/">
-              <img src="Logo.png" alt="Ravangi Logo" className="h-15 w-auto drop-shadow-lg" />
+              <img src="Logo.png" alt="Ravangi Logo" className="h-15 w-auto" />
             </Link>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 ">
+          <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <motion.div
                 key={item.name}
-                className={`relative font-medium px-3 py-2 ${
-                  scrolled ? "text-[#0b3d60]" : "text-[#0b3d60]"
-                }`}
-                style={{
-                  textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.1)",
-                }}
+                className="relative font-medium px-3 py-2 text-[#0b3d60]"
                 whileHover={{ scale: 1.05 }}
               >
-                <Link to={item.href}>
-                  {item.name}
-                  <motion.span
-                    className={`absolute bottom-0 left-0 w-0 h-0.5 ${
-                      scrolled ? "bg-[#0b3d60]" : "bg-white"
-                    }`}
-                    whileHover={{ width: "100%" }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </Link>
+                <Link to={item.href}>{item.name}</Link>
               </motion.div>
             ))}
           </div>
 
-          {/* Icons + Google Login */}
-          <div className="flex items-center space-x-4">
-            {/* WhatsApp Icon */}
+          {/* Icons + Auth */}
+          <div className="hidden md:flex items-center space-x-4">
             <motion.button
               onClick={handleWhatsAppClick}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="hidden md:flex items-center justify-center p-2 rounded-full bg-green-500 text-white shadow-md hover:bg-green-600 transition-colors"
+              className="flex items-center justify-center p-2 rounded-full bg-green-500 text-white shadow-md hover:bg-green-600 transition-colors"
               title="Contact us on WhatsApp"
             >
               <FaWhatsapp className="h-5 w-5" />
@@ -144,26 +94,22 @@ const Navbar = ( { user, setUser } ) => {
 
             {user ? (
               <div className="relative profile-dropdown">
-                {/* Profile Picture as Button */}
                 <img
-                  src={user.picture}
+                  src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                   alt="Profile"
-                  className="w-8 h-8 rounded-full cursor-pointer border border-gray-300 z-50"
+                  className="w-8 h-8 rounded-full cursor-pointer border border-gray-300"
                   onClick={() => setDropdownOpen((prev) => !prev)}
                 />
-
-                {/* Dropdown Card */}
                 {dropdownOpen && (
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute right-0 m-0 w-64 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
+                    className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg border border-gray-200 z-50"
                   >
-                    {/* User Info */}
                     <div className="p-4 border-b border-gray-200 flex items-center space-x-3">
                       <img
-                        src={user.picture}
+                        src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
                         alt="Profile"
                         className="w-12 h-12 rounded-full"
                       />
@@ -173,21 +119,27 @@ const Navbar = ( { user, setUser } ) => {
                       </div>
                     </div>
                     <div className="flex flex-col p-2">
-                      <Link to="/update-profile" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
+                      <Link
+                        to="/update-profile"
+                        className="w-full text-left px-4 py-2 rounded hover:bg-gray-100"
+                      >
                         Update Profile
                       </Link>
                       <button
                         onClick={() => navigate("/my-cart")}
-                        className="w-full text-left px-4 py-2 rounded hover:bg-gray-100 cursor-pointer"
+                        className="w-full text-left px-4 py-2 rounded hover:bg-gray-100"
                       >
                         My Cart
                       </button>
-                      <Link to="/my-orders" className="w-full text-left px-4 py-2 rounded hover:bg-gray-100">
+                      <Link
+                        to="/my-orders"
+                        className="w-full text-left px-4 py-2 rounded hover:bg-gray-100"
+                      >
                         My Orders
                       </Link>
                       <button
                         onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 text-red-500 rounded hover:bg-gray-100 cursor-pointer"
+                        className="w-full text-left px-4 py-2 text-red-500 rounded hover:bg-gray-100"
                       >
                         Logout
                       </button>
@@ -196,10 +148,20 @@ const Navbar = ( { user, setUser } ) => {
                 )}
               </div>
             ) : (
-              <GoogleLogin
-                onSuccess={handleLoginSuccess}
-                onError={() => console.log("Login Failed")}
-              />
+              <div className="flex space-x-3">
+                <button
+                  onClick={() => navigate("/login")}
+                  className="px-4 py-2 bg-[#0b3d60] text-white rounded hover:bg-[#174b75] transition-all"
+                >
+                  Login
+                </button>
+                <button
+                  onClick={() => navigate("/register")}
+                  className="px-4 py-2 border border-[#0b3d60] text-[#0b3d60] rounded hover:bg-[#0b3d60] hover:text-white transition-all"
+                >
+                  Register
+                </button>
+              </div>
             )}
           </div>
 
@@ -210,9 +172,6 @@ const Navbar = ( { user, setUser } ) => {
               className={`${
                 scrolled ? "text-[#0b3d60]" : "text-black"
               } focus:outline-none`}
-              style={{
-                textShadow: scrolled ? "none" : "0px 2px 6px rgba(0,0,0,0.7)",
-              }}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
@@ -235,20 +194,15 @@ const Navbar = ( { user, setUser } ) => {
               <motion.div
                 key={item.name}
                 className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded"
-                style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
                 whileHover={{ x: 5 }}
                 onClick={() => setIsOpen(false)}
               >
-                <Link to={item.href}>
-                  {item.name}
-                </Link>
+                <Link to={item.href}>{item.name}</Link>
               </motion.div>
             ))}
-            
-            {/* WhatsApp option in mobile menu */}
+
             <motion.div
               className="block px-3 py-2 text-white font-medium hover:bg-white/10 rounded"
-              style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
               whileHover={{ x: 5 }}
               onClick={handleWhatsAppClick}
             >
@@ -257,27 +211,31 @@ const Navbar = ( { user, setUser } ) => {
                 Contact via WhatsApp
               </div>
             </motion.div>
-            
-            <div className="flex space-x-4 px-3 py-2">
-              <motion.button 
-                whileHover={{ scale: 1.1 }} 
-                whileTap={{ scale: 0.9 }} 
-                className="text-white"
-                style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
-              >
-                <FiSearch className="h-5 w-5" />
-              </motion.button>
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                className="text-white relative"
-                style={{ textShadow: "0px 2px 6px rgba(0,0,0,0.7)" }}
-              >
-                <FiShoppingCart className="h-5 w-5" />
-                <span className="absolute -top-2 -right-2 bg-white text-[#0b3d60] font-bold text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                  0
-                </span>
-              </motion.button>
+
+            <div className="px-3 py-2">
+              {user ? (
+                <button
+                  onClick={handleLogout}
+                  className="w-full bg-red-500 text-white py-2 rounded hover:bg-red-600"
+                >
+                  Logout
+                </button>
+              ) : (
+                <div className="flex flex-col space-y-2">
+                  <button
+                    onClick={() => navigate("/login")}
+                    className="w-full bg-[#0b3d60] text-white py-2 rounded"
+                  >
+                    Login
+                  </button>
+                  <button
+                    onClick={() => navigate("/register")}
+                    className="w-full border border-white text-white py-2 rounded"
+                  >
+                    Register
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </motion.div>

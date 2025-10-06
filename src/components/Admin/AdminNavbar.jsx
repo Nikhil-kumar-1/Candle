@@ -51,7 +51,7 @@ const AdminNavbar = ( { user, setUser } ) => {
             className="flex items-center gap-2 cursor-pointer"
           >
             <img
-              src={user?.picture }
+              src={"https://cdn-icons-png.flaticon.com/512/3135/3135715.png"}
               alt="Admin"
               className="w-8 h-8 rounded-full border border-gray-300"
             />

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import {  Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 import Home from "./components/Home";
-import { GoogleOAuthProvider } from "@react-oauth/google";
 import { CartProvider } from "./contexts/CartContext";
 import UpdateProfile from "./components/UpdateProfile";
 import Footer from "./components/Footer";
@@ -26,11 +25,17 @@ import Orders from "./components/Orders/Orders";
 import OrdersAdmin from "./components/Admin/Components/Orders";
 import ProductCard from "./components/Product/ProductCard";
 import ProductsByCategory from "./components/Category/ProductsByCategory";
+import Login from "./components/Auth/Login";
+import Register from "./components/Auth/Register";
 
 // Protected route component
 const AdminRoute = ({ user, children }) => {
   if (!user || user.role !== "admin") {
-    return <h2 className="text-center mt-10 text-xl text-red-500">Unauthorized</h2>;
+    return (
+      <h2 className="text-center mt-10 text-xl text-red-500">
+        Unauthorized
+      </h2>
+    );
   }
   return children;
 };
@@ -38,6 +43,7 @@ const AdminRoute = ({ user, children }) => {
 const App = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
     if (storedUser) {
@@ -47,75 +53,78 @@ const App = () => {
 
   useEffect(() => {
     console.log("User state updated:", user);
-    if (user?.role === "admin" ) {
+    if (user?.role === "admin") {
       navigate("/admin");
     }
   }, [user]);
 
   return (
-    
-      <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-        {/* Navbar conditionally rendered based on user role */}
-        {user?.role === "admin" ? <AdminNavbar user={user} setUser={setUser} /> : <Navbar user={user} setUser={setUser} />}
+    <>
+      {/* Navbar conditionally rendered based on user role */}
+      {user?.role === "admin" ? (
+        <AdminNavbar user={user} setUser={setUser} />
+      ) : (
+        <Navbar user={user} setUser={setUser} />
+      )}
 
-        <CartProvider>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/update-profile" element={<UpdateProfile />} />
-            <Route path="/product" element={<Product />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<ContactUs />} />
-            <Route path="/collections" element={<Collections />} />
-            <Route path="/collections/:id" element={<CollectionDetail />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/tnc" element={<TermsAndConditions />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/my-cart" element={<Cart />} />
-            <Route path="/my-orders" element={<Orders />} />
-            <Route path="/product/:productId" element={<ProductCard />} />
-            <Route path="/category/:slug" element={<ProductsByCategory />} />
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/update-profile" element={<UpdateProfile />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<ContactUs />} />
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/collections/:id" element={<CollectionDetail />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/tnc" element={<TermsAndConditions />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/my-cart" element={<Cart />} />
+          <Route path="/my-orders" element={<Orders />} />
+          <Route path="/product/:productId" element={<ProductCard />} />
+          <Route path="/category/:slug" element={<ProductsByCategory />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/register" element={<Register setUser={setUser} />} />
+          {/* ✅ Admin-only routes */}
+          <Route
+            path="/admin"
+            element={
+              <AdminRoute user={user}>
+                <Admin />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/users"
+            element={
+              <AdminRoute user={user}>
+                <Users />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/products"
+            element={
+              <AdminRoute user={user}>
+                <Products />
+              </AdminRoute>
+            }
+          />
+          <Route
+            path="/admin/orders"
+            element={
+              <AdminRoute user={user}>
+                <OrdersAdmin />
+              </AdminRoute>
+            }
+          />
+        </Routes>
 
-            {/* ✅ Admin-only route */}
-            <Route
-              path="/admin"
-              element={
-                <AdminRoute user={user}>
-                  <Admin />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="/admin/users"
-              element={
-                <AdminRoute user={user}>
-                  <Users />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="/admin/products"
-              element={
-                <AdminRoute user={user}>
-                  <Products />
-                </AdminRoute>
-              }
-            />
-            <Route
-              path="/admin/orders"
-              element={
-                <AdminRoute user={user}>
-                  <OrdersAdmin />
-                </AdminRoute>
-              }
-            />
-          </Routes>
-
-          <FloatingButtons />
-          <ScrollToTop />
-          <Footer />
-        </CartProvider>
-      </GoogleOAuthProvider>
-    
+        <FloatingButtons />
+        <ScrollToTop />
+        <Footer />
+      </CartProvider>
+    </>
   );
 };
 
